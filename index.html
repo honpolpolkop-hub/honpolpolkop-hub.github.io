@@ -18,7 +18,6 @@
             padding: 20px;
         }
 
-        /* Шапка с информацией о школе */
         .school-header {
             background: white;
             border-radius: 15px 15px 0 0;
@@ -43,18 +42,12 @@
             margin-bottom: 10px;
         }
 
-        .school-header p {
-            color: #666;
-            font-size: 14px;
-        }
-
         .school-header .contacts {
             margin-top: 10px;
             font-size: 13px;
             color: #999;
         }
 
-        /* Основной контейнер */
         .container {
             max-width: 900px;
             margin: 0 auto 30px;
@@ -64,7 +57,6 @@
             overflow: hidden;
         }
 
-        /* Информация о проекте */
         .project-info {
             background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
             padding: 25px;
@@ -97,18 +89,12 @@
             border-left: 5px solid #4CAF50;
         }
 
-        .author-box p {
-            margin: 5px 0;
-            font-size: 16px;
-        }
-
         .author-name {
             font-size: 20px;
             color: #1a237e;
             font-weight: bold;
         }
 
-        /* Прогресс-бар */
         .progress-container {
             padding: 20px 25px;
             background: #f8f9fa;
@@ -138,7 +124,6 @@
             transition: width 0.3s ease;
         }
 
-        /* Область опроса */
         .survey-area {
             padding: 25px;
         }
@@ -212,11 +197,6 @@
             flex: 1;
         }
 
-        .option-item input:checked + label {
-            color: #4CAF50;
-            font-weight: 500;
-        }
-
         .checkbox-group {
             background: white;
             padding: 10px 15px;
@@ -224,11 +204,6 @@
             border: 1px solid #e0e0e0;
         }
 
-        .checkbox-group:hover {
-            background: #f1f8e9;
-        }
-
-        /* Кнопки */
         .button-container {
             text-align: center;
             margin: 30px 0;
@@ -262,23 +237,18 @@
             box-shadow: 0 4px 15px rgba(0,0,0,0.1);
         }
 
-        .btn-secondary:hover {
-            transform: translateY(-2px);
-            background: linear-gradient(135deg, #e4e7eb, #d5d9e0);
-        }
-
         .btn-success {
             background: linear-gradient(135deg, #2196F3, #1976D2);
             color: white;
             box-shadow: 0 4px 15px rgba(33, 150, 243, 0.3);
         }
 
-        .btn-success:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(33, 150, 243, 0.4);
+        .btn-warning {
+            background: linear-gradient(135deg, #ff9800, #f57c00);
+            color: white;
+            box-shadow: 0 4px 15px rgba(255, 152, 0, 0.3);
         }
 
-        /* Результаты */
         .results-area {
             padding: 25px;
             background: linear-gradient(135deg, #f5f7fa 0%, #e8f5e9 100%);
@@ -293,11 +263,41 @@
             text-align: center;
         }
 
-        .chart-container {
+        .total-stats {
+            background: linear-gradient(135deg, #4CAF50, #45a049);
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .total-number {
+            font-size: 48px;
+            font-weight: bold;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .stat-table {
             background: white;
             border-radius: 15px;
-            padding: 25px;
+            padding: 20px;
             box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        .stat-table h4 {
+            color: #1a237e;
+            margin-bottom: 15px;
+            text-align: center;
+            font-size: 18px;
+            border-bottom: 2px solid #4CAF50;
+            padding-bottom: 10px;
         }
 
         .chart-item {
@@ -312,11 +312,6 @@
             font-weight: 500;
         }
 
-        .chart-label span:first-child {
-            display: flex;
-            align-items: center;
-        }
-
         .color-dot {
             width: 12px;
             height: 12px;
@@ -327,56 +322,58 @@
 
         .chart-bar-bg {
             width: 100%;
-            height: 30px;
+            height: 25px;
             background: #f0f0f0;
-            border-radius: 15px;
+            border-radius: 12px;
             overflow: hidden;
             margin-bottom: 5px;
         }
 
         .chart-bar-fill {
             height: 100%;
-            background: linear-gradient(90deg, #4CAF50, #8BC34A);
-            border-radius: 15px;
+            border-radius: 12px;
             transition: width 0.5s ease;
             display: flex;
             align-items: center;
             justify-content: flex-end;
             padding-right: 10px;
             color: white;
-            font-size: 14px;
+            font-size: 12px;
             font-weight: bold;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
         }
 
-        .stats-numbers {
+        .chart-1 .chart-bar-fill { background: linear-gradient(90deg, #4CAF50, #8BC34A); }
+        .chart-2 .chart-bar-fill { background: linear-gradient(90deg, #2196F3, #64B5F6); }
+        .chart-3 .chart-bar-fill { background: linear-gradient(90deg, #FF9800, #FFB74D); }
+
+        .stat-row {
             display: flex;
-            justify-content: space-around;
-            margin: 30px 0;
-            flex-wrap: wrap;
+            justify-content: space-between;
+            padding: 8px 0;
+            border-bottom: 1px solid #eee;
         }
 
-        .stat-card {
-            background: white;
-            border-radius: 10px;
-            padding: 20px;
-            text-align: center;
-            min-width: 150px;
-            margin: 10px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-            border-bottom: 3px solid #4CAF50;
-        }
-
-        .stat-number {
-            font-size: 36px;
-            font-weight: bold;
-            color: #4CAF50;
+        .stat-row:last-child {
+            border-bottom: none;
         }
 
         .stat-label {
-            color: #666;
-            font-size: 14px;
-            margin-top: 5px;
+            color: #555;
+        }
+
+        .stat-value {
+            color: #1a237e;
+            font-weight: bold;
+        }
+
+        .warning-message {
+            background: #fff3cd;
+            color: #856404;
+            padding: 15px;
+            border-radius: 10px;
+            margin: 20px 0;
+            text-align: center;
+            border-left: 5px solid #ffc107;
         }
 
         .footer {
@@ -394,93 +391,19 @@
             font-weight: 500;
         }
 
-        .success-message {
-            color: #4CAF50;
-            text-align: center;
-            margin: 10px 0;
-            font-weight: 500;
-        }
-
-        /* Таблица сравнения */
-        .comparison-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 30px 0;
-            background: white;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-        }
-
-        .comparison-table th {
-            background: #4CAF50;
-            color: white;
-            padding: 15px;
-            font-weight: 600;
-        }
-
-        .comparison-table td {
-            padding: 12px 15px;
-            border-bottom: 1px solid #e0e0e0;
-            color: #333;
-        }
-
-        .comparison-table tr:last-child td {
-            border-bottom: none;
-        }
-
-        .comparison-table tr:hover {
-            background: #f5f5f5;
-        }
-
-        .comparison-table .feature {
-            font-weight: 600;
-            color: #1a237e;
-        }
-
-        .positive {
-            color: #4CAF50;
-            font-weight: 500;
-        }
-
-        .negative {
-            color: #f44336;
-            font-weight: 500;
-        }
-
-        .neutral {
-            color: #FF9800;
-            font-weight: 500;
-        }
-
         @media (max-width: 768px) {
-            .school-header h1 {
-                font-size: 18px;
+            .stats-grid {
+                grid-template-columns: 1fr;
             }
             
             .project-title {
                 font-size: 24px;
             }
             
-            .question-text {
-                font-size: 16px;
-            }
-            
-            .options {
-                margin-left: 20px;
-            }
-            
             .btn {
-                padding: 12px 25px;
-                font-size: 16px;
-            }
-
-            .comparison-table {
+                padding: 12px 20px;
                 font-size: 14px;
-            }
-
-            .comparison-table td {
-                padding: 8px 10px;
+                margin: 5px;
             }
         }
     </style>
@@ -489,11 +412,9 @@
     <!-- ШАПКА С ИНФОРМАЦИЕЙ О ШКОЛЕ -->
     <div class="school-header">
         <h1>КОМИТЕТ ПО ДЕЛАМ ОБРАЗОВАНИЯ ГОРОДА ЧЕЛЯБИНСКА</h1>
-        <h2>МУНИЦИПАЛЬНОЕ АВТОНОМНОЕ ОБЩЕОБРАЗОВАТЕЛЬНОЕ УЧРЕЖДЕНИЕ<br>
-        «СРЕДНЯЯ ОБЩЕОБРАЗОВАТЕЛЬНАЯ ШКОЛА № 153 Г. ЧЕЛЯБИНСКА»</h2>
+        <h2>МАОУ «СРЕДНЯЯ ОБЩЕОБРАЗОВАТЕЛЬНАЯ ШКОЛА № 153 Г. ЧЕЛЯБИНСКА»</h2>
         <div class="contacts">
-            📍 454080, г. Челябинск, ул. Энтузиастов 15б | 📞 тел./факс. (351)232-42-78<br>
-            ✉️ e-mail: school1532011@yandex.ru | 🌐 сайт: www.school153.chel-edu.ru
+            📍 454080, г. Челябинск, ул. Энтузиастов 15б | 📞 (351)232-42-78
         </div>
     </div>
 
@@ -523,12 +444,12 @@
 
         <!-- ОБЛАСТЬ ОПРОСА -->
         <div class="survey-area">
-            <h2 class="section-title">📋 Опрос одноклассников об альтернативных источниках энергии</h2>
-            <p style="margin-bottom: 20px; color: #666;">Пожалуйста, ответьте на все вопросы. Это поможет в моем исследовании.</p>
+            <h2 class="section-title">📋 Опрос одноклассников</h2>
+            <p style="margin-bottom: 20px; color: #666;">Ответьте на вопросы. Ваши ответы добавятся к общей статистике.</p>
 
             <form id="surveyForm">
                 <!-- ВОПРОС 1 -->
-                <div class="question-card" data-question="1">
+                <div class="question-card">
                     <span class="question-number">1</span>
                     <span class="question-text">Знаете ли вы, что такое альтернативные источники энергии (АИЭ)?</span>
                     <div class="options">
@@ -548,43 +469,39 @@
                 </div>
 
                 <!-- ВОПРОС 2 -->
-                <div class="question-card" data-question="2">
+                <div class="question-card">
                     <span class="question-number">2</span>
-                    <span class="question-text">Какие из этих источников энергии вы считаете альтернативными? (можно выбрать несколько)</span>
+                    <span class="question-text">Какие источники вы знаете? (можно выбрать несколько)</span>
                     <div class="options">
                         <div class="checkbox-group">
                             <div class="option-item">
                                 <input type="checkbox" name="q2_sun" value="Солнечная" id="q2_sun">
-                                <label for="q2_sun">☀️ Солнечная энергия</label>
+                                <label for="q2_sun">☀️ Солнечная</label>
                             </div>
                             <div class="option-item">
                                 <input type="checkbox" name="q2_wind" value="Ветровая" id="q2_wind">
-                                <label for="q2_wind">💨 Ветровая энергия</label>
+                                <label for="q2_wind">💨 Ветровая</label>
                             </div>
                             <div class="option-item">
                                 <input type="checkbox" name="q2_water" value="Гидроэнергия" id="q2_water">
-                                <label for="q2_water">💧 Гидроэнергия (вода)</label>
+                                <label for="q2_water">💧 Гидроэнергия</label>
                             </div>
                             <div class="option-item">
                                 <input type="checkbox" name="q2_geo" value="Геотермальная" id="q2_geo">
-                                <label for="q2_geo">🌋 Геотермальная энергия (тепло Земли)</label>
+                                <label for="q2_geo">🌋 Геотермальная</label>
                             </div>
                             <div class="option-item">
                                 <input type="checkbox" name="q2_bio" value="Биоэнергия" id="q2_bio">
-                                <label for="q2_bio">🌱 Биоэнергия (растения, отходы)</label>
-                            </div>
-                            <div class="option-item" style="opacity: 0.6;">
-                                <input type="checkbox" name="q2_oil" value="Нефть и газ" id="q2_oil">
-                                <label for="q2_oil">⛽ Нефть и газ (традиционные источники)</label>
+                                <label for="q2_bio">🌱 Биоэнергия</label>
                             </div>
                         </div>
                     </div>
                 </div>
 
                 <!-- ВОПРОС 3 -->
-                <div class="question-card" data-question="3">
+                <div class="question-card">
                     <span class="question-number">3</span>
-                    <span class="question-text">Как вы думаете, какой источник альтернативной энергии самый распространенный в мире на данный момент?</span>
+                    <span class="question-text">Самый распространённый источник АИЭ в мире?</span>
                     <div class="options">
                         <div class="option-item">
                             <input type="radio" name="q3" value="Солнечная" id="q3_sun" required>
@@ -596,7 +513,7 @@
                         </div>
                         <div class="option-item">
                             <input type="radio" name="q3" value="Гидроэнергия" id="q3_hydro">
-                            <label for="q3_hydro">💧 Гидроэнергия (вода)</label>
+                            <label for="q3_hydro">💧 Гидроэнергия</label>
                         </div>
                         <div class="option-item">
                             <input type="radio" name="q3" value="Геотермальная" id="q3_geo">
@@ -606,9 +523,9 @@
                 </div>
 
                 <!-- ВОПРОС 4 -->
-                <div class="question-card" data-question="4">
+                <div class="question-card">
                     <span class="question-number">4</span>
-                    <span class="question-text">Как вы считаете, использование альтернативных источников энергии поможет улучшить экологию в нашем городе Челябинске?</span>
+                    <span class="question-text">Поможет ли АИЭ улучшить экологию Челябинска?</span>
                     <div class="options">
                         <div class="option-item">
                             <input type="radio" name="q4" value="Да, значительно" id="q4_yes" required>
@@ -622,316 +539,262 @@
                             <input type="radio" name="q4" value="Нет, не повлияет" id="q4_no">
                             <label for="q4_no">👎 Нет, не повлияет</label>
                         </div>
-                        <div class="option-item">
-                            <input type="radio" name="q4" value="Затрудняюсь ответить" id="q4_dunno">
-                            <label for="q4_dunno">❓ Затрудняюсь ответить</label>
-                        </div>
                     </div>
                 </div>
 
                 <!-- ВОПРОС 5 -->
-                <div class="question-card" data-question="5">
+                <div class="question-card">
                     <span class="question-number">5</span>
-                    <span class="question-text">Какой главный недостаток солнечных и ветровых электростанций?</span>
+                    <span class="question-text">Главный недостаток солнечных и ветровых станций?</span>
                     <div class="options">
                         <div class="option-item">
                             <input type="radio" name="q5" value="Зависимость от погоды" id="q5_weather" required>
-                            <label for="q5_weather">☁️ Зависимость от погоды и времени суток</label>
+                            <label for="q5_weather">☁️ Зависимость от погоды</label>
                         </div>
                         <div class="option-item">
                             <input type="radio" name="q5" value="Высокая стоимость" id="q5_cost">
-                            <label for="q5_cost">💰 Высокая стоимость оборудования</label>
+                            <label for="q5_cost">💰 Высокая стоимость</label>
                         </div>
                         <div class="option-item">
                             <input type="radio" name="q5" value="Шум" id="q5_noise">
-                            <label for="q5_noise">🔊 Шум (для ветряков)</label>
-                        </div>
-                        <div class="option-item">
-                            <input type="radio" name="q5" value="Занимают много места" id="q5_space">
-                            <label for="q5_space">🗺️ Занимают много места</label>
+                            <label for="q5_noise">🔊 Шум</label>
                         </div>
                     </div>
                 </div>
 
                 <!-- ВОПРОС 6 -->
-                <div class="question-card" data-question="6">
+                <div class="question-card">
                     <span class="question-number">6</span>
-                    <span class="question-text">Слышали ли вы о проектах в сфере "зеленой" энергетики в Челябинской области?</span>
+                    <span class="question-text">Слышали о проектах "зелёной" энергетики в Челябинской области?</span>
                     <div class="options">
                         <div class="option-item">
-                            <input type="radio" name="q6" value="Да, слышал(а)" id="q6_yes" required>
-                            <label for="q6_yes">✅ Да, слышал(а)</label>
+                            <input type="radio" name="q6" value="Да" id="q6_yes" required>
+                            <label for="q6_yes">✅ Да</label>
                         </div>
                         <div class="option-item">
-                            <input type="radio" name="q6" value="Что-то слышал(а)" id="q6_heard">
-                            <label for="q6_heard">👂 Что-то слышал(а)</label>
+                            <input type="radio" name="q6" value="Что-то слышал" id="q6_heard">
+                            <label for="q6_heard">👂 Что-то слышал</label>
                         </div>
                         <div class="option-item">
-                            <input type="radio" name="q6" value="Нет, не слышал(а)" id="q6_no">
-                            <label for="q6_no">❌ Нет, не слышал(а)</label>
+                            <input type="radio" name="q6" value="Нет" id="q6_no">
+                            <label for="q6_no">❌ Нет</label>
                         </div>
                     </div>
                 </div>
 
                 <!-- ВОПРОС 7 -->
-                <div class="question-card" data-question="7">
+                <div class="question-card">
                     <span class="question-number">7</span>
-                    <span class="question-text">Готовы ли вы лично экономить электроэнергию у себя дома?</span>
+                    <span class="question-text">Готовы ли вы экономить электроэнергию дома?</span>
                     <div class="options">
                         <div class="option-item">
-                            <input type="radio" name="q7" value="Да, уже экономлю" id="q7_yes" required>
-                            <label for="q7_yes">💪 Да, уже экономлю</label>
+                            <input type="radio" name="q7" value="Уже экономлю" id="q7_yes" required>
+                            <label for="q7_yes">💪 Уже экономлю</label>
                         </div>
                         <div class="option-item">
-                            <input type="radio" name="q7" value="Да, готов попробовать" id="q7_ready">
-                            <label for="q7_ready">👍 Да, готов(а) попробовать</label>
+                            <input type="radio" name="q7" value="Готов попробовать" id="q7_ready">
+                            <label for="q7_ready">👍 Готов попробовать</label>
                         </div>
                         <div class="option-item">
-                            <input type="radio" name="q7" value="Нет, не интересуюсь" id="q7_no">
-                            <label for="q7_no">👎 Нет, меня это не интересует</label>
+                            <input type="radio" name="q7" value="Не интересуюсь" id="q7_no">
+                            <label for="q7_no">👎 Не интересуюсь</label>
                         </div>
                     </div>
                 </div>
 
                 <!-- ВОПРОС 8 -->
-                <div class="question-card" data-question="8">
+                <div class="question-card">
                     <span class="question-number">8</span>
-                    <span class="question-text">Как вы думаете, смогут ли альтернативные источники энергии полностью заменить нефть и газ в будущем?</span>
+                    <span class="question-text">Смогут ли АИЭ заменить нефть и газ?</span>
                     <div class="options">
                         <div class="option-item">
-                            <input type="radio" name="q8" value="Да, в ближайшие 20-30 лет" id="q8_soon" required>
+                            <input type="radio" name="q8" value="Да, скоро" id="q8_soon" required>
                             <label for="q8_soon">🚀 Да, в ближайшие 20-30 лет</label>
                         </div>
                         <div class="option-item">
-                            <input type="radio" name="q8" value="Да, но очень не скоро" id="q8_later">
+                            <input type="radio" name="q8" value="Да, но не скоро" id="q8_later">
                             <label for="q8_later">⏰ Да, но очень не скоро</label>
                         </div>
                         <div class="option-item">
-                            <input type="radio" name="q8" value="Нет, не смогут" id="q8_no">
+                            <input type="radio" name="q8" value="Нет" id="q8_no">
                             <label for="q8_no">❌ Нет, не смогут</label>
-                        </div>
-                        <div class="option-item">
-                            <input type="radio" name="q8" value="Затрудняюсь ответить" id="q8_dunno">
-                            <label for="q8_dunno">❓ Затрудняюсь ответить</label>
                         </div>
                     </div>
                 </div>
 
                 <!-- КНОПКИ -->
                 <div class="button-container">
-                    <button type="button" class="btn btn-primary" onclick="calculateResults()">📊 Показать результаты</button>
-                    <button type="button" class="btn btn-secondary" onclick="resetSurvey()">🔄 Пройти заново</button>
+                    <button type="button" class="btn btn-primary" onclick="submitSurvey()">📊 Отправить и показать статистику</button>
+                    <button type="button" class="btn btn-secondary" onclick="resetSurvey()">🔄 Сбросить</button>
                 </div>
 
                 <div id="errorMessage" class="error-message"></div>
             </form>
         </div>
 
-        <!-- ОБЛАСТЬ РЕЗУЛЬТАТОВ (изначально скрыта) -->
+        <!-- ОБЛАСТЬ РЕЗУЛЬТАТОВ -->
         <div id="resultsArea" class="results-area" style="display: none;">
-            <h3 class="results-title">📈 Результаты опроса одноклассников</h3>
+            <h3 class="results-title">📊 ОБЩАЯ СТАТИСТИКА ОПРОСА</h3>
             
-            <div class="stats-numbers" id="statsNumbers"></div>
+            <!-- Общая статистика -->
+            <div class="total-stats">
+                <div style="font-size: 18px; margin-bottom: 10px;">Всего опрошено:</div>
+                <div class="total-number" id="totalRespondents">0</div>
+                <div style="font-size: 16px; margin-top: 10px;">человек</div>
+            </div>
 
-            <div class="chart-container">
-                <h4 style="color: #1a237e; margin-bottom: 20px;">Анализ ответов по ключевым вопросам:</h4>
-                
-                <!-- Диаграмма по вопросу 1 -->
-                <div class="chart-item" id="chart1">
-                    <div class="chart-label">
-                        <span><span class="color-dot" style="background: #4CAF50;"></span> Знают об АИЭ</span>
-                        <span id="q1_percent">0%</span>
+            <!-- Предупреждение о localStorage -->
+            <div class="warning-message" id="storageWarning" style="display: none;">
+                ⚠️ Данные хранятся в вашем браузере. Если почистите кэш - статистика исчезнет.
+            </div>
+
+            <!-- Три диаграммы -->
+            <div class="stats-grid">
+                <!-- Диаграмма 1: Знание об АИЭ -->
+                <div class="stat-table">
+                    <h4>📊 Знание об АИЭ</h4>
+                    <div class="chart-item chart-1">
+                        <div class="chart-label">
+                            <span><span class="color-dot" style="background: #4CAF50;"></span> Знают/слышали</span>
+                            <span id="knowPercent">0%</span>
+                        </div>
+                        <div class="chart-bar-bg">
+                            <div class="chart-bar-fill" id="knowBar" style="width: 0%;">0%</div>
+                        </div>
                     </div>
-                    <div class="chart-bar-bg">
-                        <div class="chart-bar-fill" id="q1_bar" style="width: 0%;">0</div>
+                    <div class="stat-row">
+                        <span class="stat-label">✅ Хорошо знают:</span>
+                        <span class="stat-value" id="knowYes">0</span>
+                    </div>
+                    <div class="stat-row">
+                        <span class="stat-label">👂 Что-то слышали:</span>
+                        <span class="stat-value" id="knowHeard">0</span>
+                    </div>
+                    <div class="stat-row">
+                        <span class="stat-label">❌ Не знают:</span>
+                        <span class="stat-value" id="knowNo">0</span>
                     </div>
                 </div>
 
-                <!-- Диаграмма по вопросу 3 (самый распространенный источник) -->
-                <div class="chart-item" id="chart3">
-                    <div class="chart-label">
-                        <span><span class="color-dot" style="background: #2196F3;"></span> Считают гидроэнергию самой распространенной</span>
-                        <span id="q3_percent">0%</span>
+                <!-- Диаграмма 2: Готовность экономить -->
+                <div class="stat-table">
+                    <h4>💚 Готовность экономить</h4>
+                    <div class="chart-item chart-2">
+                        <div class="chart-label">
+                            <span><span class="color-dot" style="background: #2196F3;"></span> Готовы экономить</span>
+                            <span id="economyPercent">0%</span>
+                        </div>
+                        <div class="chart-bar-bg">
+                            <div class="chart-bar-fill" id="economyBar" style="width: 0%;">0%</div>
+                        </div>
                     </div>
-                    <div class="chart-bar-bg">
-                        <div class="chart-bar-fill" id="q3_bar" style="width: 0%; background: linear-gradient(90deg, #2196F3, #64B5F6);">0</div>
+                    <div class="stat-row">
+                        <span class="stat-label">💪 Уже экономят:</span>
+                        <span class="stat-value" id="economyYes">0</span>
                     </div>
-                </div>
-
-                <!-- Диаграмма по вопросу 4 (экология) -->
-                <div class="chart-item" id="chart4">
-                    <div class="chart-label">
-                        <span><span class="color-dot" style="background: #FF9800;"></span> Верят в улучшение экологии Челябинска</span>
-                        <span id="q4_percent">0%</span>
+                    <div class="stat-row">
+                        <span class="stat-label">👍 Готовы попробовать:</span>
+                        <span class="stat-value" id="economyReady">0</span>
                     </div>
-                    <div class="chart-bar-bg">
-                        <div class="chart-bar-fill" id="q4_bar" style="width: 0%; background: linear-gradient(90deg, #FF9800, #FFB74D);">0</div>
-                    </div>
-                </div>
-
-                <!-- Диаграмма по вопросу 7 (готовность экономить) -->
-                <div class="chart-item" id="chart7">
-                    <div class="chart-label">
-                        <span><span class="color-dot" style="background: #9C27B0;"></span> Готовы экономить энергию</span>
-                        <span id="q7_percent">0%</span>
-                    </div>
-                    <div class="chart-bar-bg">
-                        <div class="chart-bar-fill" id="q7_bar" style="width: 0%; background: linear-gradient(90deg, #9C27B0, #BA68C8);">0</div>
+                    <div class="stat-row">
+                        <span class="stat-label">👎 Не интересуются:</span>
+                        <span class="stat-value" id="economyNo">0</span>
                     </div>
                 </div>
 
-                <!-- Диаграмма по вопросу 8 (замена нефти и газа) -->
-                <div class="chart-item" id="chart8">
-                    <div class="chart-label">
-                        <span><span class="color-dot" style="background: #f44336;"></span> Верят в полную замену традиционных источников</span>
-                        <span id="q8_percent">0%</span>
+                <!-- Диаграмма 3: Экология Челябинска -->
+                <div class="stat-table">
+                    <h4>🏭 Экология Челябинска</h4>
+                    <div class="chart-item chart-3">
+                        <div class="chart-label">
+                            <span><span class="color-dot" style="background: #FF9800;"></span> Верят в улучшение</span>
+                            <span id="ecologyPercent">0%</span>
+                        </div>
+                        <div class="chart-bar-bg">
+                            <div class="chart-bar-fill" id="ecologyBar" style="width: 0%;">0%</div>
+                        </div>
                     </div>
-                    <div class="chart-bar-bg">
-                        <div class="chart-bar-fill" id="q8_bar" style="width: 0%; background: linear-gradient(90deg, #f44336, #ef9a9a);">0</div>
+                    <div class="stat-row">
+                        <span class="stat-label">👍 Да, значительно:</span>
+                        <span class="stat-value" id="ecologyYes">0</span>
+                    </div>
+                    <div class="stat-row">
+                        <span class="stat-label">🤔 Возможно:</span>
+                        <span class="stat-value" id="ecologyMaybe">0</span>
+                    </div>
+                    <div class="stat-row">
+                        <span class="stat-label">👎 Не повлияет:</span>
+                        <span class="stat-value" id="ecologyNo">0</span>
                     </div>
                 </div>
             </div>
 
-            <!-- Дополнительные кнопки для работы с результатами -->
+            <!-- Кнопки управления данными -->
             <div class="button-container">
                 <button class="btn btn-success" onclick="copyResults()">📋 Скопировать результаты</button>
-                <button class="btn btn-secondary" onclick="printResults()">🖨️ Распечатать</button>
-            </div>
-
-            <div style="text-align: center; margin-top: 20px;">
-                <p style="font-size: 18px; color: #1a237e;">✨ Спасибо за участие в опросе! ✨</p>
-                <p style="color: #666; font-style: italic;">Ваши ответы помогут в исследовательском проекте</p>
-            </div>
-        </div>
-
-        <!-- СРАВНИТЕЛЬНАЯ ТАБЛИЦА ИСТОЧНИКОВ ЭНЕРГИИ -->
-        <div class="survey-area">
-            <h2 class="section-title">🔬 Сравнительный анализ альтернативных источников энергии</h2>
-            
-            <table class="comparison-table">
-                <thead>
-                    <tr>
-                        <th>Характеристика</th>
-                        <th>Солнечная</th>
-                        <th>Ветровая</th>
-                        <th>Гидро</th>
-                        <th>Геотермальная</th>
-                        <th>Биоэнергия</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td class="feature">Возобновляемость</td>
-                        <td class="positive">✅ Да</td>
-                        <td class="positive">✅ Да</td>
-                        <td class="positive">✅ Да</td>
-                        <td class="positive">✅ Да</td>
-                        <td class="positive">✅ Да</td>
-                    </tr>
-                    <tr>
-                        <td class="feature">КПД</td>
-                        <td class="neutral">15-20%</td>
-                        <td class="neutral">30-45%</td>
-                        <td class="positive">85-90%</td>
-                        <td class="neutral">10-20%</td>
-                        <td class="neutral">25-35%</td>
-                    </tr>
-                    <tr>
-                        <td class="feature">Экологичность</td>
-                        <td class="positive">Высокая</td>
-                        <td class="positive">Высокая</td>
-                        <td class="neutral">Средняя</td>
-                        <td class="neutral">Средняя</td>
-                        <td class="negative">Низкая</td>
-                    </tr>
-                    <tr>
-                        <td class="feature">Зависимость от погоды</td>
-                        <td class="negative">Высокая</td>
-                        <td class="negative">Высокая</td>
-                        <td class="positive">Низкая</td>
-                        <td class="positive">Низкая</td>
-                        <td class="neutral">Средняя</td>
-                    </tr>
-                    <tr>
-                        <td class="feature">Шум</td>
-                        <td class="positive">Нет</td>
-                        <td class="negative">Высокий</td>
-                        <td class="neutral">Средний</td>
-                        <td class="positive">Низкий</td>
-                        <td class="neutral">Средний</td>
-                    </tr>
-                    <tr>
-                        <td class="feature">Стоимость установки</td>
-                        <td class="neutral">Средняя</td>
-                        <td class="neutral">Средняя</td>
-                        <td class="negative">Высокая</td>
-                        <td class="negative">Высокая</td>
-                        <td class="neutral">Средняя</td>
-                    </tr>
-                </tbody>
-            </table>
-
-            <div style="margin-top: 20px; padding: 15px; background: #e8f5e9; border-radius: 10px;">
-                <h4 style="color: #1a237e; margin-bottom: 10px;">📌 Вывод по результатам анализа:</h4>
-                <p style="color: #333; line-height: 1.6;">
-                    <strong>Гидроэнергия</strong> имеет ряд преимуществ: высокий КПД (до 90%), 
-                    стабильность выработки, отсутствие выбросов CO₂. Однако требует 
-                    значительных начальных вложений и влияет на экосистемы рек.
-                    <br><br>
-                    <strong>Солнечная и ветровая энергетика</strong> экологичны, но зависят от погодных условий.
-                    <br><br>
-                    <strong>Геотермальная энергия</strong> стабильна, но доступна не везде.
-                    <br><br>
-                    <strong>Биоэнергетика</strong> позволяет утилизировать отходы, но при сжигании выделяет CO₂.
-                </p>
+                <button class="btn btn-warning" onclick="clearAllData()">🗑️ Очистить все данные</button>
+                <button class="btn btn-secondary" onclick="refreshStats()">🔄 Обновить статистику</button>
             </div>
         </div>
 
         <!-- ПОДВАЛ -->
         <div class="footer">
-            © 2026, Зырянов Владимир, 7А класс. Исследовательский проект "Альтернативные источники энергии"<br>
-            Все права защищены. Данные опроса анонимны и используются только для исследования.
+            © 2026, Зырянов Владимир, 7А класс | Данные сохраняются в вашем браузере
         </div>
     </div>
 
     <script>
-        // Массив для хранения ответов
-        let responses = [];
+        // Функция загрузки всех ответов из localStorage
+        function loadAllResponses() {
+            const saved = localStorage.getItem('energy_survey_responses');
+            return saved ? JSON.parse(saved) : [];
+        }
+
+        // Функция сохранения ответов
+        function saveResponse(answers) {
+            let allResponses = loadAllResponses();
+            
+            // Добавляем timestamp
+            answers.timestamp = new Date().toLocaleString();
+            answers.id = Date.now() + Math.random().toString(36);
+            
+            allResponses.push(answers);
+            localStorage.setItem('energy_survey_responses', JSON.stringify(allResponses));
+            
+            // Показываем предупреждение о localStorage
+            document.getElementById('storageWarning').style.display = 'block';
+            setTimeout(() => {
+                document.getElementById('storageWarning').style.display = 'none';
+            }, 3000);
+            
+            return allResponses;
+        }
 
         // Функция обновления прогресса
         function updateProgress() {
             let answeredCount = 0;
-            const totalQuestions = 8;
-
-            // Проверяем вопросы с radio (1,3,4,5,6,7,8)
+            
+            // Проверяем radio вопросы
             for (let i = 1; i <= 8; i++) {
-                if (i === 2) continue; // Пропускаем вопрос с checkbox
-                
+                if (i === 2) continue;
                 const radios = document.getElementsByName(`q${i}`);
-                if (radios.length > 0) {
-                    for (let radio of radios) {
-                        if (radio.checked) {
-                            answeredCount++;
-                            break;
-                        }
+                for (let radio of radios) {
+                    if (radio.checked) {
+                        answeredCount++;
+                        break;
                     }
                 }
             }
-
-            // Проверяем вопрос 2 (checkbox) - хотя бы один отмечен
-            const checkboxes = document.querySelectorAll('input[name^="q2_"]');
-            for (let cb of checkboxes) {
-                if (cb.checked) {
-                    answeredCount++;
-                    break;
-                }
-            }
-
-            document.getElementById('progressCount').textContent = `${answeredCount}/${totalQuestions}`;
-            document.getElementById('progressBar').style.width = `${(answeredCount / totalQuestions) * 100}%`;
+            
+            // Проверяем checkbox вопрос 2
+            const checkboxes = document.querySelectorAll('input[name^="q2_"]:checked');
+            if (checkboxes.length > 0) answeredCount++;
+            
+            document.getElementById('progressCount').textContent = `${answeredCount}/8`;
+            document.getElementById('progressBar').style.width = `${(answeredCount / 8) * 100}%`;
         }
 
-        // Добавляем слушатели событий на все инпуты
+        // Слушаем изменения
         document.querySelectorAll('input').forEach(input => {
             input.addEventListener('change', updateProgress);
         });
@@ -940,45 +803,34 @@
         function collectResponses() {
             const answers = {};
             
-            // Собираем ответы на вопросы 1,3,4,5,6,7,8
-            for (let i = 1; i <= 8; i++) {
-                if (i === 2) {
-                    // Собираем checkbox для вопроса 2
-                    const selected = [];
-                    document.querySelectorAll(`input[name^="q2_"]:checked`).forEach(cb => {
-                        selected.push(cb.value);
-                    });
-                    answers.q2 = selected.length > 0 ? selected : ['Не выбрано'];
-                    continue;
-                }
-                
-                const radios = document.getElementsByName(`q${i}`);
-                for (let radio of radios) {
-                    if (radio.checked) {
-                        answers[`q${i}`] = radio.value;
-                        break;
-                    }
-                }
-                
-                if (!answers[`q${i}`]) {
-                    answers[`q${i}`] = 'Не ответили';
-                }
+            // Вопрос 1
+            const q1 = document.querySelector('input[name="q1"]:checked');
+            answers.q1 = q1 ? q1.value : null;
+            
+            // Вопрос 2 (checkbox)
+            answers.q2 = [];
+            document.querySelectorAll('input[name^="q2_"]:checked').forEach(cb => {
+                answers.q2.push(cb.value);
+            });
+            
+            // Вопросы 3-8
+            for (let i = 3; i <= 8; i++) {
+                const q = document.querySelector(`input[name="q${i}"]:checked`);
+                answers[`q${i}`] = q ? q.value : null;
             }
             
             return answers;
         }
 
-        // Функция подсчета результатов
-        function calculateResults() {
-            // Проверяем, все ли вопросы отвечены
-            let allAnswered = true;
-            
+        // Функция отправки опроса
+        function submitSurvey() {
+            // Проверка на все ответы
             for (let i = 1; i <= 8; i++) {
                 if (i === 2) {
                     const checkboxes = document.querySelectorAll('input[name^="q2_"]:checked');
                     if (checkboxes.length === 0) {
-                        allAnswered = false;
-                        break;
+                        document.getElementById('errorMessage').textContent = '⚠️ Выберите хотя бы один источник в вопросе 2';
+                        return;
                     }
                 } else {
                     const radios = document.getElementsByName(`q${i}`);
@@ -990,141 +842,165 @@
                         }
                     }
                     if (!answered) {
-                        allAnswered = false;
-                        break;
+                        document.getElementById('errorMessage').textContent = `⚠️ Ответьте на вопрос ${i}`;
+                        return;
                     }
                 }
             }
-
-            if (!allAnswered) {
-                document.getElementById('errorMessage').textContent = '⚠️ Пожалуйста, ответьте на все вопросы перед просмотром результатов!';
-                return;
-            }
-
+            
             document.getElementById('errorMessage').textContent = '';
-
-            // Сохраняем ответы
+            
+            // Собираем и сохраняем ответы
             const answers = collectResponses();
-            responses.push(answers);
-
-            // Показываем область результатов
-            document.getElementById('resultsArea').style.display = 'block';
-
-            // Подсчитываем статистику
-            const total = responses.length;
+            saveResponse(answers);
             
-            // Вопрос 1: знают об АИЭ
-            const q1Yes = responses.filter(r => r.q1 === 'Да, хорошо знаю').length;
-            const q1Percent = Math.round((q1Yes / total) * 100) || 0;
+            // Показываем статистику
+            displayStats();
             
-            // Вопрос 3: считают гидроэнергию самой распространенной
-            const q3Hydro = responses.filter(r => r.q3 === 'Гидроэнергия').length;
-            const q3Percent = Math.round((q3Hydro / total) * 100) || 0;
+            // Сбрасываем форму для следующего пользователя
+            resetSurveyForm();
             
-            // Вопрос 4: верят в улучшение экологии
-            const q4Yes = responses.filter(r => r.q4 === 'Да, значительно').length;
-            const q4Percent = Math.round((q4Yes / total) * 100) || 0;
-            
-            // Вопрос 7: готовы экономить
-            const q7Ready = responses.filter(r => r.q7 === 'Да, уже экономлю' || r.q7 === 'Да, готов попробовать').length;
-            const q7Percent = Math.round((q7Ready / total) * 100) || 0;
-            
-            // Вопрос 8: верят в полную замену
-            const q8Replace = responses.filter(r => r.q8 === 'Да, в ближайшие 20-30 лет' || r.q8 === 'Да, но очень не скоро').length;
-            const q8Percent = Math.round((q8Replace / total) * 100) || 0;
-
-            // Обновляем проценты
-            document.getElementById('q1_percent').textContent = `${q1Percent}% (${q1Yes}/${total})`;
-            document.getElementById('q3_percent').textContent = `${q3Percent}% (${q3Hydro}/${total})`;
-            document.getElementById('q4_percent').textContent = `${q4Percent}% (${q4Yes}/${total})`;
-            document.getElementById('q7_percent').textContent = `${q7Percent}% (${q7Ready}/${total})`;
-            document.getElementById('q8_percent').textContent = `${q8Percent}% (${q8Replace}/${total})`;
-
-            // Обновляем ширину баров
-            document.getElementById('q1_bar').style.width = `${q1Percent}%`;
-            document.getElementById('q1_bar').textContent = `${q1Percent}%`;
-            
-            document.getElementById('q3_bar').style.width = `${q3Percent}%`;
-            document.getElementById('q3_bar').textContent = `${q3Percent}%`;
-            
-            document.getElementById('q4_bar').style.width = `${q4Percent}%`;
-            document.getElementById('q4_bar').textContent = `${q4Percent}%`;
-            
-            document.getElementById('q7_bar').style.width = `${q7Percent}%`;
-            document.getElementById('q7_bar').textContent = `${q7Percent}%`;
-            
-            document.getElementById('q8_bar').style.width = `${q8Percent}%`;
-            document.getElementById('q8_bar').textContent = `${q8Percent}%`;
-
-            // Обновляем статистику
-            const statsHTML = `
-                <div class="stat-card">
-                    <div class="stat-number">${total}</div>
-                    <div class="stat-label">Всего опрошено</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number">${q1Yes}</div>
-                    <div class="stat-label">Знают об АИЭ</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number">${q7Ready}</div>
-                    <div class="stat-label">Готовы экономить</div>
-                </div>
-            `;
-            document.getElementById('statsNumbers').innerHTML = statsHTML;
-
             // Прокручиваем к результатам
             document.getElementById('resultsArea').scrollIntoView({ behavior: 'smooth' });
         }
 
-        // Функция сброса опроса
-        function resetSurvey() {
-            // Сбрасываем все radio
-            document.querySelectorAll('input[type="radio"]').forEach(radio => {
-                radio.checked = false;
-            });
+        // Функция отображения статистики
+        function displayStats() {
+            const allResponses = loadAllResponses();
+            const total = allResponses.length;
             
-            // Сбрасываем все checkbox
-            document.querySelectorAll('input[type="checkbox"]').forEach(cb => {
-                cb.checked = false;
-            });
+            if (total === 0) {
+                document.getElementById('resultsArea').style.display = 'none';
+                return;
+            }
             
-            // Сбрасываем прогресс
+            document.getElementById('resultsArea').style.display = 'block';
+            document.getElementById('totalRespondents').textContent = total;
+            
+            // Подсчет для диаграммы 1
+            const q1Yes = allResponses.filter(r => r.q1 === 'Да, хорошо знаю').length;
+            const q1Heard = allResponses.filter(r => r.q1 === 'Что-то слышал(а)').length;
+            const q1No = allResponses.filter(r => r.q1 === 'Нет, не знаю').length;
+            const knowTotal = q1Yes + q1Heard;
+            const knowPercent = Math.round((knowTotal / total) * 100) || 0;
+            
+            document.getElementById('knowPercent').textContent = knowPercent + '%';
+            document.getElementById('knowBar').style.width = knowPercent + '%';
+            document.getElementById('knowBar').textContent = knowPercent + '%';
+            document.getElementById('knowYes').textContent = q1Yes;
+            document.getElementById('knowHeard').textContent = q1Heard;
+            document.getElementById('knowNo').textContent = q1No;
+            
+            // Подсчет для диаграммы 2
+            const q7Yes = allResponses.filter(r => r.q7 === 'Уже экономлю').length;
+            const q7Ready = allResponses.filter(r => r.q7 === 'Готов попробовать').length;
+            const q7No = allResponses.filter(r => r.q7 === 'Не интересуюсь').length;
+            const economyTotal = q7Yes + q7Ready;
+            const economyPercent = Math.round((economyTotal / total) * 100) || 0;
+            
+            document.getElementById('economyPercent').textContent = economyPercent + '%';
+            document.getElementById('economyBar').style.width = economyPercent + '%';
+            document.getElementById('economyBar').textContent = economyPercent + '%';
+            document.getElementById('economyYes').textContent = q7Yes;
+            document.getElementById('economyReady').textContent = q7Ready;
+            document.getElementById('economyNo').textContent = q7No;
+            
+            // Подсчет для диаграммы 3
+            const q4Yes = allResponses.filter(r => r.q4 === 'Да, значительно').length;
+            const q4Maybe = allResponses.filter(r => r.q4 === 'Возможно, немного').length;
+            const q4No = allResponses.filter(r => r.q4 === 'Нет, не повлияет').length;
+            const ecologyPercent = Math.round((q4Yes / total) * 100) || 0;
+            
+            document.getElementById('ecologyPercent').textContent = ecologyPercent + '%';
+            document.getElementById('ecologyBar').style.width = ecologyPercent + '%';
+            document.getElementById('ecologyBar').textContent = ecologyPercent + '%';
+            document.getElementById('ecologyYes').textContent = q4Yes;
+            document.getElementById('ecologyMaybe').textContent = q4Maybe;
+            document.getElementById('ecologyNo').textContent = q4No;
+        }
+
+        // Сброс формы
+        function resetSurveyForm() {
+            document.querySelectorAll('input[type="radio"], input[type="checkbox"]').forEach(input => {
+                input.checked = false;
+            });
             updateProgress();
-            
-            // Скрываем результаты
+        }
+
+        // Полный сброс (кнопка "Сбросить")
+        function resetSurvey() {
+            resetSurveyForm();
             document.getElementById('resultsArea').style.display = 'none';
-            
-            // Очищаем сообщение об ошибке
             document.getElementById('errorMessage').textContent = '';
-            
-            // Прокручиваем к началу
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        // Функция копирования результатов
+        // Очистить все данные
+        function clearAllData() {
+            if (confirm('Вы уверены? Вся статистика будет удалена!')) {
+                localStorage.removeItem('energy_survey_responses');
+                document.getElementById('resultsArea').style.display = 'none';
+                alert('✅ Все данные очищены');
+            }
+        }
+
+        // Обновить статистику
+        function refreshStats() {
+            displayStats();
+        }
+
+        // Копировать результаты
         function copyResults() {
-            const total = responses.length;
-            const q1Yes = responses.filter(r => r.q1 === 'Да, хорошо знаю').length;
-            const q7Ready = responses.filter(r => r.q7 === 'Да, уже экономлю' || r.q7 === 'Да, готов попробовать').length;
+            const allResponses = loadAllResponses();
+            const total = allResponses.length;
             
-            const text = `Результаты опроса по альтернативным источникам энергии
-Всего опрошено: ${total} человек
-Знают об АИЭ: ${q1Yes} (${Math.round((q1Yes/total)*100)}%)
-Готовы экономить энергию: ${q7Ready} (${Math.round((q7Ready/total)*100)}%)`;
+            if (total === 0) {
+                alert('Нет данных для копирования');
+                return;
+            }
+            
+            const q1Yes = allResponses.filter(r => r.q1 === 'Да, хорошо знаю').length;
+            const q1Heard = allResponses.filter(r => r.q1 === 'Что-то слышал(а)').length;
+            const q1No = allResponses.filter(r => r.q1 === 'Нет, не знаю').length;
+            
+            const q7Yes = allResponses.filter(r => r.q7 === 'Уже экономлю').length;
+            const q7Ready = allResponses.filter(r => r.q7 === 'Готов попробовать').length;
+            
+            const q4Yes = allResponses.filter(r => r.q4 === 'Да, значительно').length;
+            const q4Maybe = allResponses.filter(r => r.q4 === 'Возможно, немного').length;
+            
+            const text = `РЕЗУЛЬТАТЫ ОПРОСА ПО АЛЬТЕРНАТИВНЫМ ИСТОЧНИКАМ ЭНЕРГИИ
+================================
+📊 Всего опрошено: ${total} человек
+
+1️⃣ ЗНАНИЕ ОБ АИЭ:
+   • Хорошо знают: ${q1Yes} (${Math.round(q1Yes/total*100)}%)
+   • Что-то слышали: ${q1Heard} (${Math.round(q1Heard/total*100)}%)
+   • Не знают: ${q1No} (${Math.round(q1No/total*100)}%)
+
+2️⃣ ГОТОВНОСТЬ ЭКОНОМИТЬ:
+   • Уже экономят: ${q7Yes} (${Math.round(q7Yes/total*100)}%)
+   • Готовы попробовать: ${q7Ready} (${Math.round(q7Ready/total*100)}%)
+   • Не интересуются: ${allResponses.filter(r => r.q7 === 'Не интересуюсь').length} (${Math.round(allResponses.filter(r => r.q7 === 'Не интересуюсь').length/total*100)}%)
+
+3️⃣ ЭКОЛОГИЯ ЧЕЛЯБИНСКА:
+   • Верят в улучшение: ${q4Yes} (${Math.round(q4Yes/total*100)}%)
+   • Сомневаются: ${q4Maybe} (${Math.round(q4Maybe/total*100)}%)
+   • Не верят: ${q4No} (${Math.round(q4No/total*100)}%)
+
+📅 Дата: ${new Date().toLocaleDateString()}`;
             
             navigator.clipboard.writeText(text).then(() => {
-                alert('Результаты скопированы в буфер обмена!');
+                alert('✅ Результаты скопированы! Можно вставить в отчёт');
             });
         }
 
-        // Функция печати
-        function printResults() {
-            window.print();
-        }
-
-        // Инициализация прогресса
-        updateProgress();
+        // Загружаем статистику при открытии страницы
+        window.onload = function() {
+            if (loadAllResponses().length > 0) {
+                displayStats();
+            }
+        };
     </script>
 </body>
 </html>
