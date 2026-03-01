@@ -95,7 +95,6 @@
             font-weight: bold;
         }
 
-        /* Область опроса */
         .survey-area {
             padding: 25px;
         }
@@ -108,106 +107,51 @@
             border-bottom: 2px solid #4CAF50;
         }
 
-        /* Поле для имени */
-        .name-input-container {
-            background: #f8f9fa;
-            border-radius: 10px;
+        .info-message {
+            background: #e8f5e9;
+            border-left: 5px solid #4CAF50;
             padding: 20px;
-            margin-bottom: 20px;
-            border: 2px solid #4CAF50;
-        }
-
-        .name-input-container label {
-            display: block;
+            border-radius: 10px;
+            margin-bottom: 30px;
             font-size: 18px;
             color: #1a237e;
-            font-weight: 600;
-            margin-bottom: 10px;
-        }
-
-        .name-input-container input {
-            width: 100%;
-            padding: 15px;
-            font-size: 16px;
-            border: 2px solid #ddd;
-            border-radius: 10px;
-            transition: all 0.3s ease;
-        }
-
-        .name-input-container input:focus {
-            border-color: #4CAF50;
-            outline: none;
-            box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.2);
-        }
-
-        .question-card {
-            background: #f8f9fa;
-            border-radius: 10px;
-            padding: 20px;
-            margin-bottom: 20px;
-            border: 1px solid #e0e0e0;
-            transition: all 0.3s ease;
-        }
-
-        .question-card:hover {
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            border-color: #4CAF50;
-        }
-
-        .question-number {
-            display: inline-block;
-            background: #4CAF50;
-            color: white;
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
             text-align: center;
-            line-height: 30px;
-            font-weight: bold;
-            margin-right: 10px;
         }
 
-        .question-text {
-            font-size: 18px;
+        .question-list {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 30px;
+        }
+
+        .question-item {
+            padding: 12px 15px;
+            border-bottom: 1px solid #e0e0e0;
+            font-size: 16px;
             color: #333;
-            font-weight: 600;
-            margin-bottom: 15px;
-            display: inline-block;
-        }
-
-        .options {
-            margin-left: 40px;
-        }
-
-        .option-item {
-            margin-bottom: 12px;
             display: flex;
             align-items: center;
         }
 
-        .option-item input[type="radio"],
-        .option-item input[type="checkbox"] {
-            width: 18px;
-            height: 18px;
-            margin-right: 12px;
-            cursor: pointer;
-            accent-color: #4CAF50;
+        .question-item:last-child {
+            border-bottom: none;
         }
 
-        .option-item label {
-            font-size: 16px;
-            color: #555;
-            cursor: pointer;
+        .question-num {
+            display: inline-block;
+            background: #4CAF50;
+            color: white;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 28px;
+            font-weight: bold;
+            margin-right: 15px;
+            font-size: 14px;
         }
 
-        .checkbox-group {
-            background: white;
-            padding: 10px 15px;
-            border-radius: 8px;
-            border: 1px solid #e0e0e0;
-        }
-
-        /* Кнопки */
         .button-container {
             text-align: center;
             margin: 30px 0;
@@ -222,6 +166,7 @@
             font-weight: 600;
             transition: all 0.3s ease;
             margin: 0 10px;
+            display: inline-block;
         }
 
         .btn-primary {
@@ -241,17 +186,11 @@
             box-shadow: 0 4px 15px rgba(0,0,0,0.1);
         }
 
-        .btn-success {
-            background: linear-gradient(135deg, #2196F3, #1976D2);
-            color: white;
+        .btn-secondary:hover {
+            transform: translateY(-2px);
+            background: linear-gradient(135deg, #e4e7eb, #d5d9e0);
         }
 
-        .btn-warning {
-            background: linear-gradient(135deg, #ff9800, #f57c00);
-            color: white;
-        }
-
-        /* ОБЛАСТЬ РЕЗУЛЬТАТОВ */
         .results-area {
             padding: 25px;
             background: linear-gradient(135deg, #f5f7fa 0%, #e8f5e9 100%);
@@ -266,7 +205,6 @@
             text-align: center;
         }
 
-        /* Таблица участников */
         .participants-section {
             background: white;
             border-radius: 15px;
@@ -429,25 +367,18 @@
             font-size: 14px;
         }
 
-        .error-message {
-            color: #f44336;
-            text-align: center;
-            margin: 10px 0;
-            font-weight: 500;
-        }
-
         @media (max-width: 768px) {
             .stats-grid {
                 grid-template-columns: 1fr;
             }
             
-            .participants-table {
-                font-size: 14px;
+            .project-title {
+                font-size: 24px;
             }
             
-            .participants-table td, 
-            .participants-table th {
-                padding: 8px;
+            .btn {
+                padding: 12px 25px;
+                font-size: 16px;
             }
         }
     </style>
@@ -475,203 +406,41 @@
             </div>
         </div>
 
-        <!-- ОПРОС -->
+        <!-- ИНФОРМАЦИЯ ОБ ОПРОСЕ -->
         <div class="survey-area">
-            <h2 class="section-title">📋 Опрос (8 вопросов)</h2>
-            <p style="margin-bottom: 20px; color: #666;">Введите имя и ответьте на все вопросы</p>
-
-            <!-- ПОЛЕ ДЛЯ ИМЕНИ -->
-            <div class="name-input-container">
-                <label>👤 Введите ваше имя:</label>
-                <input type="text" id="userName" placeholder="Например: Лёша, Артем, Владимир..." maxlength="30">
+            <h2 class="section-title">📋 Опрос по теме проекта</h2>
+            
+            <div class="info-message">
+                👆 Для прохождения опроса нажмите на зелёную кнопку ниже<br>
+                <small>Все ответы автоматически сохранятся в Google Таблице с подсчётом процентов</small>
             </div>
 
-            <form id="surveyForm">
-                <!-- ВОПРОС 1 -->
-                <div class="question-card">
-                    <span class="question-number">1</span>
-                    <span class="question-text">Знаете ли вы, что такое альтернативные источники энергии?</span>
-                    <div class="options">
-                        <div class="option-item">
-                            <input type="radio" name="q1" value="Да, хорошо знаю" id="q1_yes" required>
-                            <label for="q1_yes">✅ Да, хорошо знаю</label>
-                        </div>
-                        <div class="option-item">
-                            <input type="radio" name="q1" value="Что-то слышал" id="q1_heard">
-                            <label for="q1_heard">👂 Что-то слышал</label>
-                        </div>
-                        <div class="option-item">
-                            <input type="radio" name="q1" value="Нет, не знаю" id="q1_no">
-                            <label for="q1_no">❌ Нет, не знаю</label>
-                        </div>
-                    </div>
-                </div>
+            <!-- СПИСОК ВОПРОСОВ -->
+            <div class="question-list">
+                <h3 style="color: #1a237e; margin-bottom: 15px;">📌 Вопросы опроса:</h3>
+                <div class="question-item"><span class="question-num">1</span> Знаете ли вы, что такое альтернативные источники энергии?</div>
+                <div class="question-item"><span class="question-num">2</span> Какие источники энергии вы знаете?</div>
+                <div class="question-item"><span class="question-num">3</span> Какой источник самый распространенный в мире?</div>
+                <div class="question-item"><span class="question-num">4</span> Помогут ли АИЭ улучшить экологию Челябинска?</div>
+                <div class="question-item"><span class="question-num">5</span> Главный недостаток солнечных и ветровых станций?</div>
+                <div class="question-item"><span class="question-num">6</span> Слышали о проектах "зелёной" энергетики в Челябинской области?</div>
+                <div class="question-item"><span class="question-num">7</span> Готовы ли вы экономить электроэнергию дома?</div>
+                <div class="question-item"><span class="question-num">8</span> Смогут ли АИЭ заменить нефть и газ?</div>
+            </div>
 
-                <!-- ВОПРОС 2 -->
-                <div class="question-card">
-                    <span class="question-number">2</span>
-                    <span class="question-text">Какие источники вы знаете? (можно выбрать несколько)</span>
-                    <div class="options">
-                        <div class="checkbox-group">
-                            <div class="option-item">
-                                <input type="checkbox" name="q2_sun" value="Солнечная" id="q2_sun">
-                                <label for="q2_sun">☀️ Солнечная</label>
-                            </div>
-                            <div class="option-item">
-                                <input type="checkbox" name="q2_wind" value="Ветровая" id="q2_wind">
-                                <label for="q2_wind">💨 Ветровая</label>
-                            </div>
-                            <div class="option-item">
-                                <input type="checkbox" name="q2_water" value="Гидроэнергия" id="q2_water">
-                                <label for="q2_water">💧 Гидроэнергия</label>
-                            </div>
-                            <div class="option-item">
-                                <input type="checkbox" name="q2_geo" value="Геотермальная" id="q2_geo">
-                                <label for="q2_geo">🌋 Геотермальная</label>
-                            </div>
-                            <div class="option-item">
-                                <input type="checkbox" name="q2_bio" value="Биоэнергия" id="q2_bio">
-                                <label for="q2_bio">🌱 Биоэнергия</label>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <!-- КНОПКА ДЛЯ ПЕРЕХОДА В GOOGLE ФОРМУ -->
+            <div class="button-container">
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSeFi49bTYy4IKFfRP74-8iP4XMitaPmN1qS-5Tgs2bEt82rcQ/viewform?usp=pp_url" target="_blank" class="btn btn-primary">📝 Пройти опрос в Google Форме</a>
+            </div>
 
-                <!-- ВОПРОС 3 -->
-                <div class="question-card">
-                    <span class="question-number">3</span>
-                    <span class="question-text">Самый распространённый источник АИЭ в мире?</span>
-                    <div class="options">
-                        <div class="option-item">
-                            <input type="radio" name="q3" value="Солнечная" id="q3_sun" required>
-                            <label for="q3_sun">☀️ Солнечная</label>
-                        </div>
-                        <div class="option-item">
-                            <input type="radio" name="q3" value="Ветровая" id="q3_wind">
-                            <label for="q3_wind">💨 Ветровая</label>
-                        </div>
-                        <div class="option-item">
-                            <input type="radio" name="q3" value="Гидроэнергия" id="q3_hydro">
-                            <label for="q3_hydro">💧 Гидроэнергия</label>
-                        </div>
-                        <div class="option-item">
-                            <input type="radio" name="q3" value="Геотермальная" id="q3_geo">
-                            <label for="q3_geo">🌋 Геотермальная</label>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- ВОПРОС 4 -->
-                <div class="question-card">
-                    <span class="question-number">4</span>
-                    <span class="question-text">Помогут ли АИЭ улучшить экологию Челябинска?</span>
-                    <div class="options">
-                        <div class="option-item">
-                            <input type="radio" name="q4" value="Да, значительно" id="q4_yes" required>
-                            <label for="q4_yes">👍 Да, значительно</label>
-                        </div>
-                        <div class="option-item">
-                            <input type="radio" name="q4" value="Возможно, немного" id="q4_maybe">
-                            <label for="q4_maybe">🤔 Возможно, немного</label>
-                        </div>
-                        <div class="option-item">
-                            <input type="radio" name="q4" value="Нет, не повлияет" id="q4_no">
-                            <label for="q4_no">👎 Нет, не повлияет</label>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- ВОПРОС 5 -->
-                <div class="question-card">
-                    <span class="question-number">5</span>
-                    <span class="question-text">Главный недостаток солнечных и ветровых станций?</span>
-                    <div class="options">
-                        <div class="option-item">
-                            <input type="radio" name="q5" value="Зависимость от погоды" id="q5_weather" required>
-                            <label for="q5_weather">☁️ Зависимость от погоды</label>
-                        </div>
-                        <div class="option-item">
-                            <input type="radio" name="q5" value="Высокая стоимость" id="q5_cost">
-                            <label for="q5_cost">💰 Высокая стоимость</label>
-                        </div>
-                        <div class="option-item">
-                            <input type="radio" name="q5" value="Шум" id="q5_noise">
-                            <label for="q5_noise">🔊 Шум</label>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- ВОПРОС 6 -->
-                <div class="question-card">
-                    <span class="question-number">6</span>
-                    <span class="question-text">Слышали о проектах "зелёной" энергетики в Челябинской области?</span>
-                    <div class="options">
-                        <div class="option-item">
-                            <input type="radio" name="q6" value="Да" id="q6_yes" required>
-                            <label for="q6_yes">✅ Да</label>
-                        </div>
-                        <div class="option-item">
-                            <input type="radio" name="q6" value="Что-то слышал" id="q6_heard">
-                            <label for="q6_heard">👂 Что-то слышал</label>
-                        </div>
-                        <div class="option-item">
-                            <input type="radio" name="q6" value="Нет" id="q6_no">
-                            <label for="q6_no">❌ Нет</label>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- ВОПРОС 7 -->
-                <div class="question-card">
-                    <span class="question-number">7</span>
-                    <span class="question-text">Готовы ли вы экономить электроэнергию дома?</span>
-                    <div class="options">
-                        <div class="option-item">
-                            <input type="radio" name="q7" value="Уже экономлю" id="q7_yes" required>
-                            <label for="q7_yes">💪 Уже экономлю</label>
-                        </div>
-                        <div class="option-item">
-                            <input type="radio" name="q7" value="Готов попробовать" id="q7_ready">
-                            <label for="q7_ready">👍 Готов попробовать</label>
-                        </div>
-                        <div class="option-item">
-                            <input type="radio" name="q7" value="Не интересуюсь" id="q7_no">
-                            <label for="q7_no">👎 Не интересуюсь</label>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- ВОПРОС 8 -->
-                <div class="question-card">
-                    <span class="question-number">8</span>
-                    <span class="question-text">Смогут ли АИЭ заменить нефть и газ?</span>
-                    <div class="options">
-                        <div class="option-item">
-                            <input type="radio" name="q8" value="Да, скоро" id="q8_soon" required>
-                            <label for="q8_soon">🚀 Да, в ближайшие 20-30 лет</label>
-                        </div>
-                        <div class="option-item">
-                            <input type="radio" name="q8" value="Да, но не скоро" id="q8_later">
-                            <label for="q8_later">⏰ Да, но очень не скоро</label>
-                        </div>
-                        <div class="option-item">
-                            <input type="radio" name="q8" value="Нет" id="q8_no">
-                            <label for="q8_no">❌ Нет, не смогут</label>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- КНОПКА -->
-                <div class="button-container">
-                    <button type="button" class="btn btn-primary" onclick="submitSurvey()">📊 Отправить результаты</button>
-                    <button type="button" class="btn btn-secondary" onclick="resetSurvey()">🔄 Сбросить форму</button>
-                </div>
-
-                <div id="errorMessage" class="error-message"></div>
-            </form>
+            <!-- ПРИМЕЧАНИЕ -->
+            <p style="text-align: center; color: #666; margin-top: 20px; font-size: 14px;">
+                ⭐ После прохождения опроса ваши ответы появятся в статистике ниже<br>
+                (страницу нужно обновить вручную)
+            </p>
         </div>
 
-        <!-- ОБЛАСТЬ РЕЗУЛЬТАТОВ -->
+        <!-- ОБЛАСТЬ РЕЗУЛЬТАТОВ (статистика из localStorage) -->
         <div class="results-area" id="resultsArea">
             <h3 class="results-title">📊 РЕЗУЛЬТАТЫ УЧАСТНИКОВ</h3>
             
@@ -687,7 +456,6 @@
                         </tr>
                     </thead>
                     <tbody id="participantsBody">
-                        <!-- Сюда будут добавляться строки через JavaScript -->
                         <tr class="empty-row">
                             <td colspan="3">Пока нет участников. Пройдите опрос первым!</td>
                         </tr>
@@ -782,91 +550,83 @@
                 </div>
             </div>
 
-            <!-- Кнопки управления -->
+            <!-- Кнопка обновления статистики -->
             <div class="button-container">
-                <button class="btn btn-success" onclick="copyResults()">📋 Скопировать результаты</button>
-                <button class="btn btn-warning" onclick="clearAllData()">🗑️ Очистить все данные</button>
+                <button class="btn btn-secondary" onclick="window.location.reload()">🔄 Обновить статистику</button>
             </div>
         </div>
 
         <!-- ПОДВАЛ -->
         <div class="footer">
-            © 2026, Зырянов Владимир, 7А класс | Всего 8 вопросов
+            © 2026, Зырянов Владимир, 7А класс | Данные опроса собираются в Google Форме
         </div>
     </div>
 
     <script>
-        // Загружаем ответы из localStorage
+        // Функция загрузки ответов из localStorage
         function loadResponses() {
             const saved = localStorage.getItem('energy_survey_with_names');
             return saved ? JSON.parse(saved) : [];
         }
 
-        // Сохраняем новый ответ
-        function saveResponse(answers) {
-            let responses = loadResponses();
-            responses.push(answers);
-            localStorage.setItem('energy_survey_with_names', JSON.stringify(responses));
-            return responses;
-        }
-
-        // Обновляем таблицу участников
+        // Обновление таблицы участников и диаграмм
         function updateParticipantsTable() {
             const responses = loadResponses();
             const tbody = document.getElementById('participantsBody');
+            const total = responses.length;
+            
+            document.getElementById('totalRespondents').textContent = total;
             
             if (responses.length === 0) {
                 tbody.innerHTML = '<tr class="empty-row"><td colspan="3">Пока нет участников. Пройдите опрос первым!</td></tr>';
+                // Обнуляем диаграммы
+                resetDiagrams();
                 return;
             }
             
+            // Заполняем таблицу
             let html = '';
-            // Сортируем от новых к старым
-            responses.reverse().forEach(r => {
+            responses.slice().reverse().forEach(r => {
                 const name = r.name || 'Аноним';
-                const result = `✅ ${r.q1.split(',')[0]}, ${r.q4.split(',')[0]}`;
-                const date = r.timestamp;
+                const result = r.q1 ? `✅ ${r.q1.substring(0, 20)}...` : '✅ Ответ получен';
+                const date = r.timestamp || new Date().toLocaleString();
                 html += `<tr>
                     <td><strong>${name}</strong></td>
                     <td>${result}</td>
                     <td>${date}</td>
                 </tr>`;
             });
-            
             tbody.innerHTML = html;
+            
+            // Обновляем диаграммы
+            updateDiagrams(responses);
         }
 
-        // Обновляем все диаграммы
-        function updateDiagrams() {
-            const responses = loadResponses();
+        // Сброс диаграмм
+        function resetDiagrams() {
+            const elements = ['knowPercent', 'knowBar', 'ecologyPercent', 'ecologyBar', 'economyPercent', 'economyBar'];
+            elements.forEach(id => {
+                const el = document.getElementById(id);
+                if (el) {
+                    if (id.includes('Bar')) {
+                        el.style.width = '0%';
+                        el.textContent = '0%';
+                    } else {
+                        el.textContent = '0%';
+                    }
+                }
+            });
+            
+            ['knowYes', 'knowHeard', 'knowNo', 'ecologyYes', 'ecologyMaybe', 'ecologyNo', 'economyYes', 'economyReady', 'economyNo'].forEach(id => {
+                const el = document.getElementById(id);
+                if (el) el.textContent = '0';
+            });
+        }
+
+        // Обновление диаграмм
+        function updateDiagrams(responses) {
             const total = responses.length;
-            
-            document.getElementById('totalRespondents').textContent = total;
-            
-            if (total === 0) {
-                // Обнуляем диаграммы
-                document.getElementById('knowPercent').textContent = '0%';
-                document.getElementById('knowBar').style.width = '0%';
-                document.getElementById('knowBar').textContent = '0%';
-                document.getElementById('knowYes').textContent = '0';
-                document.getElementById('knowHeard').textContent = '0';
-                document.getElementById('knowNo').textContent = '0';
-                
-                document.getElementById('ecologyPercent').textContent = '0%';
-                document.getElementById('ecologyBar').style.width = '0%';
-                document.getElementById('ecologyBar').textContent = '0%';
-                document.getElementById('ecologyYes').textContent = '0';
-                document.getElementById('ecologyMaybe').textContent = '0';
-                document.getElementById('ecologyNo').textContent = '0';
-                
-                document.getElementById('economyPercent').textContent = '0%';
-                document.getElementById('economyBar').style.width = '0%';
-                document.getElementById('economyBar').textContent = '0%';
-                document.getElementById('economyYes').textContent = '0';
-                document.getElementById('economyReady').textContent = '0';
-                document.getElementById('economyNo').textContent = '0';
-                return;
-            }
+            if (total === 0) return;
             
             // Диаграмма 1: Знание
             const q1Yes = responses.filter(r => r.q1 === 'Да, хорошо знаю').length;
@@ -910,125 +670,9 @@
             document.getElementById('economyNo').textContent = q7No;
         }
 
-        // Отправка опроса
-        function submitSurvey() {
-            // Проверка имени
-            const userName = document.getElementById('userName').value.trim();
-            if (!userName) {
-                document.getElementById('errorMessage').textContent = '⚠️ Введите ваше имя';
-                return;
-            }
-            
-            // Проверка на все ответы
-            for (let i = 1; i <= 8; i++) {
-                if (i === 2) {
-                    const checkboxes = document.querySelectorAll('input[name^="q2_"]:checked');
-                    if (checkboxes.length === 0) {
-                        document.getElementById('errorMessage').textContent = '⚠️ Выберите хотя бы один источник в вопросе 2';
-                        return;
-                    }
-                } else {
-                    const radios = document.getElementsByName(`q${i}`);
-                    let answered = false;
-                    for (let radio of radios) {
-                        if (radio.checked) {
-                            answered = true;
-                            break;
-                        }
-                    }
-                    if (!answered) {
-                        document.getElementById('errorMessage').textContent = `⚠️ Ответьте на вопрос ${i}`;
-                        return;
-                    }
-                }
-            }
-            
-            document.getElementById('errorMessage').textContent = '';
-            
-            // Собираем ответы
-            const answers = {
-                name: userName,
-                q1: document.querySelector('input[name="q1"]:checked').value,
-                q2: [],
-                q3: document.querySelector('input[name="q3"]:checked').value,
-                q4: document.querySelector('input[name="q4"]:checked').value,
-                q5: document.querySelector('input[name="q5"]:checked').value,
-                q6: document.querySelector('input[name="q6"]:checked').value,
-                q7: document.querySelector('input[name="q7"]:checked').value,
-                q8: document.querySelector('input[name="q8"]:checked').value,
-                timestamp: new Date().toLocaleString()
-            };
-            
-            document.querySelectorAll('input[name^="q2_"]:checked').forEach(cb => {
-                answers.q2.push(cb.value);
-            });
-            
-            // Сохраняем
-            saveResponse(answers);
-            
-            // Обновляем всё
-            updateParticipantsTable();
-            updateDiagrams();
-            
-            // Сбрасываем форму
-            document.getElementById('userName').value = '';
-            document.querySelectorAll('input[type="radio"], input[type="checkbox"]').forEach(input => {
-                input.checked = false;
-            });
-            
-            alert(`✅ Спасибо, ${userName}! Ваш ответ добавлен`);
-        }
-
-        // Сброс формы
-        function resetSurvey() {
-            document.getElementById('userName').value = '';
-            document.querySelectorAll('input[type="radio"], input[type="checkbox"]').forEach(input => {
-                input.checked = false;
-            });
-            document.getElementById('errorMessage').textContent = '';
-        }
-
-        // Очистить все данные
-        function clearAllData() {
-            if (confirm('Удалить все результаты опроса?')) {
-                localStorage.removeItem('energy_survey_with_names');
-                updateParticipantsTable();
-                updateDiagrams();
-            }
-        }
-
-        // Копировать результаты
-        function copyResults() {
-            const responses = loadResponses();
-            const total = responses.length;
-            
-            if (total === 0) {
-                alert('Нет данных');
-                return;
-            }
-            
-            let text = `РЕЗУЛЬТАТЫ ОПРОСА
-Всего участников: ${total}\n\n`;
-            
-            text += `СПИСОК УЧАСТНИКОВ:\n`;
-            responses.forEach(r => {
-                text += `${r.name || 'Аноним'} - ${r.timestamp}\n`;
-            });
-            
-            text += `\nСТАТИСТИКА:\n`;
-            text += `Знают об АИЭ: ${responses.filter(r => r.q1 === 'Да, хорошо знаю').length} чел.\n`;
-            text += `Верят в улучшение экологии: ${responses.filter(r => r.q4 === 'Да, значительно').length} чел.\n`;
-            text += `Экономят энергию: ${responses.filter(r => r.q7 === 'Уже экономлю').length} чел.`;
-            
-            navigator.clipboard.writeText(text).then(() => {
-                alert('✅ Результаты скопированы');
-            });
-        }
-
         // Загружаем при старте
         window.onload = function() {
             updateParticipantsTable();
-            updateDiagrams();
         };
     </script>
 </body>
