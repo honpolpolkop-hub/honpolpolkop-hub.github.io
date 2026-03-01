@@ -24,7 +24,7 @@
             padding: 25px;
             text-align: center;
             box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            max-width: 900px;
+            max-width: 1200px;
             margin: 0 auto;
             border-bottom: 3px solid #4CAF50;
         }
@@ -49,7 +49,7 @@
         }
 
         .container {
-            max-width: 900px;
+            max-width: 1200px;
             margin: 0 auto 30px;
             background: white;
             border-radius: 0 0 15px 15px;
@@ -95,8 +95,28 @@
             font-weight: bold;
         }
 
-        .survey-area {
+        /* ДВЕ КОЛОНКИ */
+        .two-columns {
+            display: flex;
             padding: 25px;
+            gap: 25px;
+        }
+
+        .left-column {
+            flex: 1;
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+
+        .right-column {
+            flex: 1;
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            border: 1px solid #e0e0e0;
         }
 
         .section-title {
@@ -107,22 +127,8 @@
             border-bottom: 2px solid #4CAF50;
         }
 
-        .info-message {
-            background: #e8f5e9;
-            border-left: 5px solid #4CAF50;
-            padding: 20px;
-            border-radius: 10px;
-            margin-bottom: 30px;
-            font-size: 18px;
-            color: #1a237e;
-            text-align: center;
-        }
-
         .question-list {
-            background: #f8f9fa;
-            border-radius: 15px;
-            padding: 25px;
-            margin-bottom: 30px;
+            margin-bottom: 25px;
         }
 
         .question-item {
@@ -152,50 +158,37 @@
             font-size: 14px;
         }
 
-        .button-container {
-            text-align: center;
-            margin: 30px 0;
+        .info-box {
+            background: #e8f5e9;
+            border-left: 5px solid #4CAF50;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 25px 0;
+            font-size: 16px;
+            color: #1a237e;
         }
 
-        .btn {
-            padding: 15px 40px;
-            font-size: 18px;
+        .info-box ul {
+            margin-left: 20px;
+            margin-top: 10px;
+        }
+
+        .info-box li {
+            margin-bottom: 8px;
+        }
+
+        /* Встроенная форма */
+        .google-form-container {
+            width: 100%;
+            height: 700px;
             border: none;
-            border-radius: 50px;
-            cursor: pointer;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            margin: 0 10px;
-            display: inline-block;
         }
 
-        .btn-primary {
-            background: linear-gradient(135deg, #4CAF50, #45a049);
-            color: white;
-            box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(76, 175, 80, 0.4);
-        }
-
-        .btn-secondary {
-            background: linear-gradient(135deg, #f5f7fa, #e4e7eb);
-            color: #333;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-        }
-
-        .btn-secondary:hover {
-            transform: translateY(-2px);
-            background: linear-gradient(135deg, #e4e7eb, #d5d9e0);
-        }
-
+        /* Результаты */
         .results-area {
             padding: 25px;
             background: linear-gradient(135deg, #f5f7fa 0%, #e8f5e9 100%);
             border-top: 3px solid #4CAF50;
-            margin-top: 20px;
         }
 
         .results-title {
@@ -205,73 +198,26 @@
             text-align: center;
         }
 
-        .participants-section {
-            background: white;
-            border-radius: 15px;
-            padding: 20px;
-            margin-bottom: 30px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-        }
-
-        .participants-section h3 {
-            color: #1a237e;
-            margin-bottom: 15px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .participants-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 15px;
-        }
-
-        .participants-table th {
-            background: #4CAF50;
+        /* Кнопка к таблице */
+        .table-link {
+            display: inline-block;
+            background: #2196F3;
             color: white;
-            padding: 12px;
-            text-align: left;
+            padding: 15px 40px;
+            border-radius: 50px;
+            text-decoration: none;
             font-weight: 600;
-        }
-
-        .participants-table th:first-child {
-            border-radius: 10px 0 0 0;
-        }
-
-        .participants-table th:last-child {
-            border-radius: 0 10px 0 0;
-        }
-
-        .participants-table td {
-            padding: 12px;
-            border-bottom: 1px solid #eee;
-            color: #333;
-        }
-
-        .participants-table tr:hover {
-            background: #f5f5f5;
-        }
-
-        .participants-table .empty-row td {
-            color: #999;
+            font-size: 18px;
+            margin: 20px auto;
             text-align: center;
-            padding: 30px;
-            font-style: italic;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(33, 150, 243, 0.3);
         }
 
-        .total-stats {
-            background: linear-gradient(135deg, #4CAF50, #45a049);
-            color: white;
-            padding: 20px;
-            border-radius: 15px;
-            text-align: center;
-            margin-bottom: 30px;
-        }
-
-        .total-number {
-            font-size: 48px;
-            font-weight: bold;
+        .table-link:hover {
+            background: #1976D2;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(33, 150, 243, 0.4);
         }
 
         .stats-grid {
@@ -281,82 +227,25 @@
             margin: 30px 0;
         }
 
-        .stat-table {
+        .stat-card {
             background: white;
             border-radius: 15px;
-            padding: 20px;
+            padding: 25px;
+            text-align: center;
             box-shadow: 0 4px 10px rgba(0,0,0,0.1);
         }
 
-        .stat-table h4 {
+        .stat-card h4 {
             color: #1a237e;
             margin-bottom: 15px;
-            text-align: center;
             font-size: 18px;
-            border-bottom: 2px solid #4CAF50;
-            padding-bottom: 10px;
         }
 
-        .chart-item {
-            margin-bottom: 20px;
-        }
-
-        .chart-label {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 8px;
-            color: #333;
-            font-weight: 500;
-        }
-
-        .color-dot {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            display: inline-block;
-            margin-right: 8px;
-        }
-
-        .chart-bar-bg {
-            width: 100%;
-            height: 25px;
-            background: #f0f0f0;
-            border-radius: 12px;
-            overflow: hidden;
-            margin-bottom: 5px;
-        }
-
-        .chart-bar-fill {
-            height: 100%;
-            border-radius: 12px;
-            transition: width 0.5s ease;
-            display: flex;
-            align-items: center;
-            justify-content: flex-end;
-            padding-right: 10px;
-            color: white;
-            font-size: 12px;
+        .stat-number {
+            font-size: 36px;
             font-weight: bold;
-        }
-
-        .chart-1 .chart-bar-fill { background: linear-gradient(90deg, #4CAF50, #8BC34A); }
-        .chart-2 .chart-bar-fill { background: linear-gradient(90deg, #2196F3, #64B5F6); }
-        .chart-3 .chart-bar-fill { background: linear-gradient(90deg, #FF9800, #FFB74D); }
-
-        .stat-row {
-            display: flex;
-            justify-content: space-between;
-            padding: 8px 0;
-            border-bottom: 1px solid #eee;
-        }
-
-        .stat-row:last-child {
-            border-bottom: none;
-        }
-
-        .stat-value {
-            color: #1a237e;
-            font-weight: bold;
+            color: #4CAF50;
+            margin: 10px 0;
         }
 
         .footer {
@@ -368,17 +257,20 @@
         }
 
         @media (max-width: 768px) {
-            .stats-grid {
-                grid-template-columns: 1fr;
+            .two-columns {
+                flex-direction: column;
             }
             
             .project-title {
                 font-size: 24px;
             }
             
-            .btn {
-                padding: 12px 25px;
-                font-size: 16px;
+            .google-form-container {
+                height: 600px;
+            }
+            
+            .stats-grid {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -406,273 +298,119 @@
             </div>
         </div>
 
-        <!-- ИНФОРМАЦИЯ ОБ ОПРОСЕ -->
-        <div class="survey-area">
-            <h2 class="section-title">📋 Опрос по теме проекта</h2>
-            
-            <div class="info-message">
-                👆 Для прохождения опроса нажмите на зелёную кнопку ниже<br>
-                <small>Все ответы автоматически сохранятся в Google Таблице с подсчётом процентов</small>
+        <!-- ДВЕ КОЛОНКИ -->
+        <div class="two-columns">
+            <!-- Левая колонка: информация -->
+            <div class="left-column">
+                <h2 class="section-title">📋 Об опросе</h2>
+                
+                <div class="question-list">
+                    <h3 style="color: #1a237e; margin-bottom: 15px;">📌 Вопросы:</h3>
+                    <div class="question-item"><span class="question-num">1</span> Знаете ли вы, что такое альтернативные источники энергии?</div>
+                    <div class="question-item"><span class="question-num">2</span> Какие источники энергии вы знаете?</div>
+                    <div class="question-item"><span class="question-num">3</span> Какой источник самый распространенный в мире?</div>
+                    <div class="question-item"><span class="question-num">4</span> Помогут ли АИЭ улучшить экологию Челябинска?</div>
+                    <div class="question-item"><span class="question-num">5</span> Главный недостаток солнечных и ветровых станций?</div>
+                    <div class="question-item"><span class="question-num">6</span> Слышали о проектах "зелёной" энергетики в Челябинской области?</div>
+                    <div class="question-item"><span class="question-num">7</span> Готовы ли вы экономить электроэнергию дома?</div>
+                    <div class="question-item"><span class="question-num">8</span> Смогут ли АИЭ заменить нефть и газ?</div>
+                </div>
+
+                <div class="info-box">
+                    <strong>📊 Как собираются результаты:</strong>
+                    <ul>
+                        <li>✅ Все ответы сохраняются в Google Таблицу</li>
+                        <li>✅ За каждый правильный ответ начисляются баллы</li>
+                        <li>✅ Максимум 40 баллов = 100% знаний</li>
+                        <li>✅ После опроса вы увидите свой процент</li>
+                    </ul>
+                </div>
+
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="https://docs.google.com/spreadsheets/d/1aZJvyWZQ2CLpxyXoOkagUHvBOnZlqbQ-hIHfZfHtQ-s/edit?resourcekey=&gid=538520158#gid=538520158" 
+                       target="_blank" 
+                       class="table-link">
+                        📊 Посмотреть таблицу с результатами
+                    </a>
+                </div>
             </div>
 
-            <!-- СПИСОК ВОПРОСОВ -->
-            <div class="question-list">
-                <h3 style="color: #1a237e; margin-bottom: 15px;">📌 Вопросы опроса:</h3>
-                <div class="question-item"><span class="question-num">1</span> Знаете ли вы, что такое альтернативные источники энергии?</div>
-                <div class="question-item"><span class="question-num">2</span> Какие источники энергии вы знаете?</div>
-                <div class="question-item"><span class="question-num">3</span> Какой источник самый распространенный в мире?</div>
-                <div class="question-item"><span class="question-num">4</span> Помогут ли АИЭ улучшить экологию Челябинска?</div>
-                <div class="question-item"><span class="question-num">5</span> Главный недостаток солнечных и ветровых станций?</div>
-                <div class="question-item"><span class="question-num">6</span> Слышали о проектах "зелёной" энергетики в Челябинской области?</div>
-                <div class="question-item"><span class="question-num">7</span> Готовы ли вы экономить электроэнергию дома?</div>
-                <div class="question-item"><span class="question-num">8</span> Смогут ли АИЭ заменить нефть и газ?</div>
+            <!-- Правая колонка: форма -->
+            <div class="right-column">
+                <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSeFi49bTYy4IKFfRP74-8iP4XMitaPmN1qS-5Tgs2bEt82rcQ/viewform?embedded=true" 
+                        class="google-form-container"
+                        frameborder="0" 
+                        marginheight="0" 
+                        marginwidth="0">
+                    Загрузка формы...
+                </iframe>
             </div>
-
-            <!-- КНОПКА ДЛЯ ПЕРЕХОДА В GOOGLE ФОРМУ -->
-            <div class="button-container">
-                <a href="https://docs.google.com/forms/d/e/1FAIpQLSeFi49bTYy4IKFfRP74-8iP4XMitaPmN1qS-5Tgs2bEt82rcQ/viewform?usp=pp_url" target="_blank" class="btn btn-primary">📝 Пройти опрос в Google Форме</a>
-            </div>
-
-            <!-- ПРИМЕЧАНИЕ -->
-            <p style="text-align: center; color: #666; margin-top: 20px; font-size: 14px;">
-                ⭐ После прохождения опроса ваши ответы появятся в статистике ниже<br>
-                (страницу нужно обновить вручную)
-            </p>
         </div>
 
-        <!-- ОБЛАСТЬ РЕЗУЛЬТАТОВ (статистика из localStorage) -->
-        <div class="results-area" id="resultsArea">
-            <h3 class="results-title">📊 РЕЗУЛЬТАТЫ УЧАСТНИКОВ</h3>
+        <!-- ОБЛАСТЬ СТАТИСТИКИ -->
+        <div class="results-area">
+            <h3 class="results-title">📊 РЕЗУЛЬТАТЫ ОПРОСА</h3>
             
-            <!-- ТАБЛИЦА УЧАСТНИКОВ -->
-            <div class="participants-section">
-                <h3>👥 Список опрошенных</h3>
-                <table class="participants-table" id="participantsTable">
-                    <thead>
-                        <tr>
-                            <th>Имя</th>
-                            <th>Результат</th>
-                            <th>Дата</th>
-                        </tr>
-                    </thead>
-                    <tbody id="participantsBody">
-                        <tr class="empty-row">
-                            <td colspan="3">Пока нет участников. Пройдите опрос первым!</td>
-                        </tr>
-                    </tbody>
-                </table>
+            <div style="text-align: center; margin-bottom: 30px;">
+                <p style="font-size: 18px; color: #1a237e; margin-bottom: 20px;">
+                    Все ответы автоматически сохраняются в Google Таблице с подсчётом процентов
+                </p>
+                <a href="https://docs.google.com/spreadsheets/d/1aZJvyWZQ2CLpxyXoOkagUHvBOnZlqbQ-hIHfZfHtQ-s/edit?resourcekey=&gid=538520158#gid=538520158" 
+                   target="_blank" 
+                   style="color: #4CAF50; font-size: 18px; font-weight: bold;">
+                    🔗 Открыть полную таблицу результатов
+                </a>
             </div>
 
-            <!-- Общая статистика -->
-            <div class="total-stats">
-                <div style="font-size: 18px; margin-bottom: 10px;">Всего опрошено:</div>
-                <div class="total-number" id="totalRespondents">0</div>
-            </div>
-
-            <!-- Три диаграммы -->
             <div class="stats-grid">
-                <!-- Диаграмма 1: Знание об АИЭ -->
-                <div class="stat-table">
-                    <h4>📊 Знание об АИЭ</h4>
-                    <div class="chart-item chart-1">
-                        <div class="chart-label">
-                            <span><span class="color-dot" style="background: #4CAF50;"></span> Знают/слышали</span>
-                            <span id="knowPercent">0%</span>
-                        </div>
-                        <div class="chart-bar-bg">
-                            <div class="chart-bar-fill" id="knowBar" style="width: 0%;">0%</div>
-                        </div>
-                    </div>
-                    <div class="stat-row">
-                        <span>✅ Хорошо знают:</span>
-                        <span class="stat-value" id="knowYes">0</span>
-                    </div>
-                    <div class="stat-row">
-                        <span>👂 Что-то слышали:</span>
-                        <span class="stat-value" id="knowHeard">0</span>
-                    </div>
-                    <div class="stat-row">
-                        <span>❌ Не знают:</span>
-                        <span class="stat-value" id="knowNo">0</span>
-                    </div>
+                <div class="stat-card">
+                    <h4>📊 Всего опрошено</h4>
+                    <div class="stat-number" id="totalCount">0</div>
+                    <p style="color: #666;">человек</p>
                 </div>
-
-                <!-- Диаграмма 2: Экология Челябинска -->
-                <div class="stat-table">
-                    <h4>🏭 Экология Челябинска</h4>
-                    <div class="chart-item chart-2">
-                        <div class="chart-label">
-                            <span><span class="color-dot" style="background: #2196F3;"></span> Верят в улучшение</span>
-                            <span id="ecologyPercent">0%</span>
-                        </div>
-                        <div class="chart-bar-bg">
-                            <div class="chart-bar-fill" id="ecologyBar" style="width: 0%;">0%</div>
-                        </div>
-                    </div>
-                    <div class="stat-row">
-                        <span>👍 Да, значительно:</span>
-                        <span class="stat-value" id="ecologyYes">0</span>
-                    </div>
-                    <div class="stat-row">
-                        <span>🤔 Возможно:</span>
-                        <span class="stat-value" id="ecologyMaybe">0</span>
-                    </div>
-                    <div class="stat-row">
-                        <span>👎 Не повлияет:</span>
-                        <span class="stat-value" id="ecologyNo">0</span>
-                    </div>
+                
+                <div class="stat-card">
+                    <h4>🏆 Средний балл</h4>
+                    <div class="stat-number" id="avgScore">0</div>
+                    <p style="color: #666;">из 40</p>
                 </div>
-
-                <!-- Диаграмма 3: Готовность экономить -->
-                <div class="stat-table">
-                    <h4>💚 Экономия энергии</h4>
-                    <div class="chart-item chart-3">
-                        <div class="chart-label">
-                            <span><span class="color-dot" style="background: #FF9800;"></span> Готовы экономить</span>
-                            <span id="economyPercent">0%</span>
-                        </div>
-                        <div class="chart-bar-bg">
-                            <div class="chart-bar-fill" id="economyBar" style="width: 0%;">0%</div>
-                        </div>
-                    </div>
-                    <div class="stat-row">
-                        <span>💪 Уже экономят:</span>
-                        <span class="stat-value" id="economyYes">0</span>
-                    </div>
-                    <div class="stat-row">
-                        <span>👍 Готовы попробовать:</span>
-                        <span class="stat-value" id="economyReady">0</span>
-                    </div>
-                    <div class="stat-row">
-                        <span>👎 Не интересуются:</span>
-                        <span class="stat-value" id="economyNo">0</span>
-                    </div>
+                
+                <div class="stat-card">
+                    <h4>📈 Средний процент</h4>
+                    <div class="stat-number" id="avgPercent">0%</div>
+                    <p style="color: #666;">знаний</p>
                 </div>
             </div>
 
-            <!-- Кнопка обновления статистики -->
-            <div class="button-container">
-                <button class="btn btn-secondary" onclick="window.location.reload()">🔄 Обновить статистику</button>
+            <div style="text-align: center; margin-top: 20px; padding: 20px; background: white; border-radius: 15px;">
+                <p style="font-size: 16px; color: #666;">
+                    ⭐ Нажмите на кнопку выше, чтобы увидеть полную статистику по каждому участнику
+                </p>
+                <p style="font-size: 14px; color: #999; margin-top: 10px;">
+                    Таблица обновляется автоматически после каждого ответа
+                </p>
             </div>
         </div>
 
         <!-- ПОДВАЛ -->
         <div class="footer">
-            © 2026, Зырянов Владимир, 7А класс | Данные опроса собираются в Google Форме
+            © 2026, Зырянов Владимир, 7А класс | Данные опроса собираются через Google Forms
         </div>
     </div>
 
     <script>
-        // Функция загрузки ответов из localStorage
-        function loadResponses() {
-            const saved = localStorage.getItem('energy_survey_with_names');
-            return saved ? JSON.parse(saved) : [];
+        // Функция для отображения статистики (будет обновляться при загрузке страницы)
+        function updateStats() {
+            // Здесь можно добавить код для получения данных из таблицы
+            // Пока оставим демо-значения
+            document.getElementById('totalCount').textContent = '0';
+            document.getElementById('avgScore').textContent = '0';
+            document.getElementById('avgPercent').textContent = '0%';
         }
 
-        // Обновление таблицы участников и диаграмм
-        function updateParticipantsTable() {
-            const responses = loadResponses();
-            const tbody = document.getElementById('participantsBody');
-            const total = responses.length;
-            
-            document.getElementById('totalRespondents').textContent = total;
-            
-            if (responses.length === 0) {
-                tbody.innerHTML = '<tr class="empty-row"><td colspan="3">Пока нет участников. Пройдите опрос первым!</td></tr>';
-                // Обнуляем диаграммы
-                resetDiagrams();
-                return;
-            }
-            
-            // Заполняем таблицу
-            let html = '';
-            responses.slice().reverse().forEach(r => {
-                const name = r.name || 'Аноним';
-                const result = r.q1 ? `✅ ${r.q1.substring(0, 20)}...` : '✅ Ответ получен';
-                const date = r.timestamp || new Date().toLocaleString();
-                html += `<tr>
-                    <td><strong>${name}</strong></td>
-                    <td>${result}</td>
-                    <td>${date}</td>
-                </tr>`;
-            });
-            tbody.innerHTML = html;
-            
-            // Обновляем диаграммы
-            updateDiagrams(responses);
-        }
-
-        // Сброс диаграмм
-        function resetDiagrams() {
-            const elements = ['knowPercent', 'knowBar', 'ecologyPercent', 'ecologyBar', 'economyPercent', 'economyBar'];
-            elements.forEach(id => {
-                const el = document.getElementById(id);
-                if (el) {
-                    if (id.includes('Bar')) {
-                        el.style.width = '0%';
-                        el.textContent = '0%';
-                    } else {
-                        el.textContent = '0%';
-                    }
-                }
-            });
-            
-            ['knowYes', 'knowHeard', 'knowNo', 'ecologyYes', 'ecologyMaybe', 'ecologyNo', 'economyYes', 'economyReady', 'economyNo'].forEach(id => {
-                const el = document.getElementById(id);
-                if (el) el.textContent = '0';
-            });
-        }
-
-        // Обновление диаграмм
-        function updateDiagrams(responses) {
-            const total = responses.length;
-            if (total === 0) return;
-            
-            // Диаграмма 1: Знание
-            const q1Yes = responses.filter(r => r.q1 === 'Да, хорошо знаю').length;
-            const q1Heard = responses.filter(r => r.q1 === 'Что-то слышал').length;
-            const q1No = responses.filter(r => r.q1 === 'Нет, не знаю').length;
-            const knowTotal = q1Yes + q1Heard;
-            const knowPercent = Math.round((knowTotal / total) * 100);
-            
-            document.getElementById('knowPercent').textContent = knowPercent + '%';
-            document.getElementById('knowBar').style.width = knowPercent + '%';
-            document.getElementById('knowBar').textContent = knowPercent + '%';
-            document.getElementById('knowYes').textContent = q1Yes;
-            document.getElementById('knowHeard').textContent = q1Heard;
-            document.getElementById('knowNo').textContent = q1No;
-            
-            // Диаграмма 2: Экология
-            const q4Yes = responses.filter(r => r.q4 === 'Да, значительно').length;
-            const q4Maybe = responses.filter(r => r.q4 === 'Возможно, немного').length;
-            const q4No = responses.filter(r => r.q4 === 'Нет, не повлияет').length;
-            const ecologyPercent = Math.round((q4Yes / total) * 100);
-            
-            document.getElementById('ecologyPercent').textContent = ecologyPercent + '%';
-            document.getElementById('ecologyBar').style.width = ecologyPercent + '%';
-            document.getElementById('ecologyBar').textContent = ecologyPercent + '%';
-            document.getElementById('ecologyYes').textContent = q4Yes;
-            document.getElementById('ecologyMaybe').textContent = q4Maybe;
-            document.getElementById('ecologyNo').textContent = q4No;
-            
-            // Диаграмма 3: Экономия
-            const q7Yes = responses.filter(r => r.q7 === 'Уже экономлю').length;
-            const q7Ready = responses.filter(r => r.q7 === 'Готов попробовать').length;
-            const q7No = responses.filter(r => r.q7 === 'Не интересуюсь').length;
-            const economyTotal = q7Yes + q7Ready;
-            const economyPercent = Math.round((economyTotal / total) * 100);
-            
-            document.getElementById('economyPercent').textContent = economyPercent + '%';
-            document.getElementById('economyBar').style.width = economyPercent + '%';
-            document.getElementById('economyBar').textContent = economyPercent + '%';
-            document.getElementById('economyYes').textContent = q7Yes;
-            document.getElementById('economyReady').textContent = q7Ready;
-            document.getElementById('economyNo').textContent = q7No;
-        }
-
-        // Загружаем при старте
+        // Запускаем при загрузке
         window.onload = function() {
-            updateParticipantsTable();
+            updateStats();
         };
     </script>
 </body>
