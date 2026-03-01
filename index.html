@@ -108,6 +108,38 @@
             border-bottom: 2px solid #4CAF50;
         }
 
+        /* Поле для имени */
+        .name-input-container {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+            border: 2px solid #4CAF50;
+        }
+
+        .name-input-container label {
+            display: block;
+            font-size: 18px;
+            color: #1a237e;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .name-input-container input {
+            width: 100%;
+            padding: 15px;
+            font-size: 16px;
+            border: 2px solid #ddd;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .name-input-container input:focus {
+            border-color: #4CAF50;
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.2);
+        }
+
         .question-card {
             background: #f8f9fa;
             border-radius: 10px;
@@ -219,19 +251,75 @@
             color: white;
         }
 
-        /* ОБЛАСТЬ ДИАГРАММ */
-        .diagrams-area {
+        /* ОБЛАСТЬ РЕЗУЛЬТАТОВ */
+        .results-area {
             padding: 25px;
             background: linear-gradient(135deg, #f5f7fa 0%, #e8f5e9 100%);
             border-top: 3px solid #4CAF50;
             margin-top: 20px;
         }
 
-        .diagrams-title {
+        .results-title {
             color: #1a237e;
             font-size: 24px;
             margin-bottom: 20px;
             text-align: center;
+        }
+
+        /* Таблица участников */
+        .participants-section {
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        .participants-section h3 {
+            color: #1a237e;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .participants-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+
+        .participants-table th {
+            background: #4CAF50;
+            color: white;
+            padding: 12px;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        .participants-table th:first-child {
+            border-radius: 10px 0 0 0;
+        }
+
+        .participants-table th:last-child {
+            border-radius: 0 10px 0 0;
+        }
+
+        .participants-table td {
+            padding: 12px;
+            border-bottom: 1px solid #eee;
+            color: #333;
+        }
+
+        .participants-table tr:hover {
+            background: #f5f5f5;
+        }
+
+        .participants-table .empty-row td {
+            color: #999;
+            text-align: center;
+            padding: 30px;
+            font-style: italic;
         }
 
         .total-stats {
@@ -271,7 +359,6 @@
             padding-bottom: 10px;
         }
 
-        /* Стили для диаграмм */
         .chart-item {
             margin-bottom: 20px;
         }
@@ -353,6 +440,15 @@
             .stats-grid {
                 grid-template-columns: 1fr;
             }
+            
+            .participants-table {
+                font-size: 14px;
+            }
+            
+            .participants-table td, 
+            .participants-table th {
+                padding: 8px;
+            }
         }
     </style>
 </head>
@@ -379,10 +475,16 @@
             </div>
         </div>
 
-        <!-- ОПРОС - ВСЕ 8 ВОПРОСОВ -->
+        <!-- ОПРОС -->
         <div class="survey-area">
             <h2 class="section-title">📋 Опрос (8 вопросов)</h2>
-            <p style="margin-bottom: 20px; color: #666;">Ответьте на все вопросы. После отправки диаграммы обновятся.</p>
+            <p style="margin-bottom: 20px; color: #666;">Введите имя и ответьте на все вопросы</p>
+
+            <!-- ПОЛЕ ДЛЯ ИМЕНИ -->
+            <div class="name-input-container">
+                <label>👤 Введите ваше имя:</label>
+                <input type="text" id="userName" placeholder="Например: Лёша, Артем, Владимир..." maxlength="30">
+            </div>
 
             <form id="surveyForm">
                 <!-- ВОПРОС 1 -->
@@ -459,7 +561,7 @@
                     </div>
                 </div>
 
-                <!-- ВОПРОС 4 - ДЛЯ ДИАГРАММЫ 2 -->
+                <!-- ВОПРОС 4 -->
                 <div class="question-card">
                     <span class="question-number">4</span>
                     <span class="question-text">Помогут ли АИЭ улучшить экологию Челябинска?</span>
@@ -519,7 +621,7 @@
                     </div>
                 </div>
 
-                <!-- ВОПРОС 7 - ДЛЯ ДИАГРАММЫ 3 -->
+                <!-- ВОПРОС 7 -->
                 <div class="question-card">
                     <span class="question-number">7</span>
                     <span class="question-text">Готовы ли вы экономить электроэнергию дома?</span>
@@ -561,7 +663,7 @@
 
                 <!-- КНОПКА -->
                 <div class="button-container">
-                    <button type="button" class="btn btn-primary" onclick="submitSurvey()">📊 Отправить и обновить диаграммы</button>
+                    <button type="button" class="btn btn-primary" onclick="submitSurvey()">📊 Отправить результаты</button>
                     <button type="button" class="btn btn-secondary" onclick="resetSurvey()">🔄 Сбросить форму</button>
                 </div>
 
@@ -569,19 +671,39 @@
             </form>
         </div>
 
-        <!-- ОБЛАСТЬ ДИАГРАММ - ВСЕГДА ВИДНА -->
-        <div class="diagrams-area" id="diagramsArea">
-            <h3 class="diagrams-title">📊 ДИАГРАММЫ РЕЗУЛЬТАТОВ</h3>
+        <!-- ОБЛАСТЬ РЕЗУЛЬТАТОВ -->
+        <div class="results-area" id="resultsArea">
+            <h3 class="results-title">📊 РЕЗУЛЬТАТЫ УЧАСТНИКОВ</h3>
             
+            <!-- ТАБЛИЦА УЧАСТНИКОВ -->
+            <div class="participants-section">
+                <h3>👥 Список опрошенных</h3>
+                <table class="participants-table" id="participantsTable">
+                    <thead>
+                        <tr>
+                            <th>Имя</th>
+                            <th>Результат</th>
+                            <th>Дата</th>
+                        </tr>
+                    </thead>
+                    <tbody id="participantsBody">
+                        <!-- Сюда будут добавляться строки через JavaScript -->
+                        <tr class="empty-row">
+                            <td colspan="3">Пока нет участников. Пройдите опрос первым!</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
             <!-- Общая статистика -->
             <div class="total-stats">
                 <div style="font-size: 18px; margin-bottom: 10px;">Всего опрошено:</div>
                 <div class="total-number" id="totalRespondents">0</div>
             </div>
 
-            <!-- Три диаграммы по главным вопросам -->
+            <!-- Три диаграммы -->
             <div class="stats-grid">
-                <!-- Диаграмма 1: Знание об АИЭ (Вопрос 1) -->
+                <!-- Диаграмма 1: Знание об АИЭ -->
                 <div class="stat-table">
                     <h4>📊 Знание об АИЭ</h4>
                     <div class="chart-item chart-1">
@@ -607,7 +729,7 @@
                     </div>
                 </div>
 
-                <!-- Диаграмма 2: Экология Челябинска (Вопрос 4) -->
+                <!-- Диаграмма 2: Экология Челябинска -->
                 <div class="stat-table">
                     <h4>🏭 Экология Челябинска</h4>
                     <div class="chart-item chart-2">
@@ -633,7 +755,7 @@
                     </div>
                 </div>
 
-                <!-- Диаграмма 3: Готовность экономить (Вопрос 7) -->
+                <!-- Диаграмма 3: Готовность экономить -->
                 <div class="stat-table">
                     <h4>💚 Экономия энергии</h4>
                     <div class="chart-item chart-3">
@@ -669,14 +791,14 @@
 
         <!-- ПОДВАЛ -->
         <div class="footer">
-            © 2026, Зырянов Владимир, 7А класс | Все 8 вопросов, 3 главные диаграммы
+            © 2026, Зырянов Владимир, 7А класс | Всего 8 вопросов
         </div>
     </div>
 
     <script>
         // Загружаем ответы из localStorage
         function loadResponses() {
-            const saved = localStorage.getItem('energy_survey_full');
+            const saved = localStorage.getItem('energy_survey_with_names');
             return saved ? JSON.parse(saved) : [];
         }
 
@@ -684,8 +806,34 @@
         function saveResponse(answers) {
             let responses = loadResponses();
             responses.push(answers);
-            localStorage.setItem('energy_survey_full', JSON.stringify(responses));
+            localStorage.setItem('energy_survey_with_names', JSON.stringify(responses));
             return responses;
+        }
+
+        // Обновляем таблицу участников
+        function updateParticipantsTable() {
+            const responses = loadResponses();
+            const tbody = document.getElementById('participantsBody');
+            
+            if (responses.length === 0) {
+                tbody.innerHTML = '<tr class="empty-row"><td colspan="3">Пока нет участников. Пройдите опрос первым!</td></tr>';
+                return;
+            }
+            
+            let html = '';
+            // Сортируем от новых к старым
+            responses.reverse().forEach(r => {
+                const name = r.name || 'Аноним';
+                const result = `✅ ${r.q1.split(',')[0]}, ${r.q4.split(',')[0]}`;
+                const date = r.timestamp;
+                html += `<tr>
+                    <td><strong>${name}</strong></td>
+                    <td>${result}</td>
+                    <td>${date}</td>
+                </tr>`;
+            });
+            
+            tbody.innerHTML = html;
         }
 
         // Обновляем все диаграммы
@@ -720,7 +868,7 @@
                 return;
             }
             
-            // Диаграмма 1: Знание (вопрос 1)
+            // Диаграмма 1: Знание
             const q1Yes = responses.filter(r => r.q1 === 'Да, хорошо знаю').length;
             const q1Heard = responses.filter(r => r.q1 === 'Что-то слышал').length;
             const q1No = responses.filter(r => r.q1 === 'Нет, не знаю').length;
@@ -734,7 +882,7 @@
             document.getElementById('knowHeard').textContent = q1Heard;
             document.getElementById('knowNo').textContent = q1No;
             
-            // Диаграмма 2: Экология (вопрос 4)
+            // Диаграмма 2: Экология
             const q4Yes = responses.filter(r => r.q4 === 'Да, значительно').length;
             const q4Maybe = responses.filter(r => r.q4 === 'Возможно, немного').length;
             const q4No = responses.filter(r => r.q4 === 'Нет, не повлияет').length;
@@ -747,7 +895,7 @@
             document.getElementById('ecologyMaybe').textContent = q4Maybe;
             document.getElementById('ecologyNo').textContent = q4No;
             
-            // Диаграмма 3: Экономия (вопрос 7)
+            // Диаграмма 3: Экономия
             const q7Yes = responses.filter(r => r.q7 === 'Уже экономлю').length;
             const q7Ready = responses.filter(r => r.q7 === 'Готов попробовать').length;
             const q7No = responses.filter(r => r.q7 === 'Не интересуюсь').length;
@@ -764,6 +912,13 @@
 
         // Отправка опроса
         function submitSurvey() {
+            // Проверка имени
+            const userName = document.getElementById('userName').value.trim();
+            if (!userName) {
+                document.getElementById('errorMessage').textContent = '⚠️ Введите ваше имя';
+                return;
+            }
+            
             // Проверка на все ответы
             for (let i = 1; i <= 8; i++) {
                 if (i === 2) {
@@ -792,6 +947,7 @@
             
             // Собираем ответы
             const answers = {
+                name: userName,
                 q1: document.querySelector('input[name="q1"]:checked').value,
                 q2: [],
                 q3: document.querySelector('input[name="q3"]:checked').value,
@@ -810,19 +966,22 @@
             // Сохраняем
             saveResponse(answers);
             
-            // Обновляем диаграммы
+            // Обновляем всё
+            updateParticipantsTable();
             updateDiagrams();
             
             // Сбрасываем форму
+            document.getElementById('userName').value = '';
             document.querySelectorAll('input[type="radio"], input[type="checkbox"]').forEach(input => {
                 input.checked = false;
             });
             
-            alert('✅ Спасибо! Ваш ответ добавлен');
+            alert(`✅ Спасибо, ${userName}! Ваш ответ добавлен`);
         }
 
         // Сброс формы
         function resetSurvey() {
+            document.getElementById('userName').value = '';
             document.querySelectorAll('input[type="radio"], input[type="checkbox"]').forEach(input => {
                 input.checked = false;
             });
@@ -832,7 +991,8 @@
         // Очистить все данные
         function clearAllData() {
             if (confirm('Удалить все результаты опроса?')) {
-                localStorage.removeItem('energy_survey_full');
+                localStorage.removeItem('energy_survey_with_names');
+                updateParticipantsTable();
                 updateDiagrams();
             }
         }
@@ -847,35 +1007,27 @@
                 return;
             }
             
-            const q1Yes = responses.filter(r => r.q1 === 'Да, хорошо знаю').length;
-            const q4Yes = responses.filter(r => r.q4 === 'Да, значительно').length;
-            const q7Yes = responses.filter(r => r.q7 === 'Уже экономлю').length;
+            let text = `РЕЗУЛЬТАТЫ ОПРОСА
+Всего участников: ${total}\n\n`;
             
-            const text = `РЕЗУЛЬТАТЫ ОПРОСА
-Всего опрошено: ${total} человек
-
-📊 ЗНАНИЕ ОБ АИЭ:
-• Хорошо знают: ${q1Yes} (${Math.round(q1Yes/total*100)}%)
-• Слышали: ${responses.filter(r => r.q1 === 'Что-то слышал').length} чел.
-• Не знают: ${responses.filter(r => r.q1 === 'Нет, не знаю').length} чел.
-
-🏭 ЭКОЛОГИЯ ЧЕЛЯБИНСКА:
-• Верят в улучшение: ${q4Yes} (${Math.round(q4Yes/total*100)}%)
-• Сомневаются: ${responses.filter(r => r.q4 === 'Возможно, немного').length} чел.
-• Не верят: ${responses.filter(r => r.q4 === 'Нет, не повлияет').length} чел.
-
-💚 ЭКОНОМИЯ ЭНЕРГИИ:
-• Уже экономят: ${q7Yes} (${Math.round(q7Yes/total*100)}%)
-• Готовы попробовать: ${responses.filter(r => r.q7 === 'Готов попробовать').length} чел.
-• Не интересуются: ${responses.filter(r => r.q7 === 'Не интересуюсь').length} чел.`;
+            text += `СПИСОК УЧАСТНИКОВ:\n`;
+            responses.forEach(r => {
+                text += `${r.name || 'Аноним'} - ${r.timestamp}\n`;
+            });
+            
+            text += `\nСТАТИСТИКА:\n`;
+            text += `Знают об АИЭ: ${responses.filter(r => r.q1 === 'Да, хорошо знаю').length} чел.\n`;
+            text += `Верят в улучшение экологии: ${responses.filter(r => r.q4 === 'Да, значительно').length} чел.\n`;
+            text += `Экономят энергию: ${responses.filter(r => r.q7 === 'Уже экономлю').length} чел.`;
             
             navigator.clipboard.writeText(text).then(() => {
                 alert('✅ Результаты скопированы');
             });
         }
 
-        // Загружаем диаграммы при старте
+        // Загружаем при старте
         window.onload = function() {
+            updateParticipantsTable();
             updateDiagrams();
         };
     </script>
